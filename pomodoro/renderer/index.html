@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>番茄钟</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Title bar -->
+  <div class="title-bar" id="titleBar">
+    <span class="title-text">🍅 番茄钟</span>
+    <div class="title-controls">
+      <button class="title-btn" id="minimizeBtn" title="最小化">─</button>
+      <button class="title-btn" id="closeBtn" title="关闭">✕</button>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <!-- Mode selector -->
+    <div class="mode-selector">
+      <button class="mode-btn active" data-mode="pomodoro">专注</button>
+      <button class="mode-btn" data-mode="shortBreak">短休息</button>
+      <button class="mode-btn" data-mode="longBreak">长休息</button>
+    </div>
+
+    <!-- Timer display -->
+    <div class="timer-display">
+      <svg class="progress-ring" viewBox="0 0 220 220">
+        <circle class="progress-bg" cx="110" cy="110" r="100" />
+        <circle class="progress-fill" id="progressCircle" cx="110" cy="110" r="100"
+          stroke-dasharray="628.32" stroke-dashoffset="0" />
+      </svg>
+      <div class="timer-text" id="timerDisplay">25:00</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="control-btn primary" id="startBtn">▶ 开始</button>
+      <button class="control-btn" id="resetBtn">⟳ 重置</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-value" id="completedCount">0</span>
+        <span class="stat-label">已完成</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="currentSession">0</span>
+        <span class="stat-label">当前轮次</span>
+      </div>
+    </div>
+
+    <!-- Task input -->
+    <div class="task-section">
+      <div class="task-input-row">
+        <input type="text" id="taskInput" placeholder="添加当前任务..." maxlength="50" />
+        <button id="addTaskBtn">+</button>
+      </div>
+      <ul class="task-list" id="taskList"></ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
