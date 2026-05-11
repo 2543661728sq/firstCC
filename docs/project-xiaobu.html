@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小布智能家庭机器人 | 孙琪作品集</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1d1d1f;
+      line-height: 1.6;
+    }
+    ::selection { background: #1d1d1f; color: #fff; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.5rem 3rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(250,250,250,0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em;
+      color: #1d1d1f;
+    }
+    .nav-back {
+      font-size: 0.85rem; color: #6e6e73;
+      transition: color 0.3s;
+    }
+    .nav-back:hover { color: #1d1d1f; }
+
+    /* Hero */
+    .project-hero {
+      padding: 8rem 2rem 4rem;
+      max-width: 1200px; margin: 0 auto;
+      text-align: center;
+    }
+    .project-category {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
+      color: #6e6e73; margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .project-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    .project-en {
+      font-size: 1.2rem; font-weight: 300; color: #6e6e73;
+      font-family: 'Inter', sans-serif; margin-bottom: 2rem;
+    }
+    .project-desc {
+      font-size: 1.1rem; line-height: 1.8; color: #3a3a3c;
+      max-width: 700px; margin: 0 auto 2rem;
+      font-weight: 300;
+    }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      justify-content: center;
+    }
+    .project-tags span {
+      font-size: 0.8rem; padding: 0.4rem 1rem;
+      background: #f0f0f2; border-radius: 100px;
+      color: #3a3a3c; font-weight: 400;
+    }
+
+    /* Gallery */
+    .gallery {
+      max-width: 1400px; margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .gallery-item {
+      margin-bottom: 3rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .gallery-item img {
+      width: 100%; height: auto;
+      display: block;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .gallery-grid .gallery-item {
+      margin-bottom: 0;
+    }
+
+    /* Details */
+    .project-details {
+      max-width: 900px; margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .detail-section {
+      margin-bottom: 3rem;
+    }
+    .detail-section h3 {
+      font-size: 1.5rem; font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .detail-section p {
+      font-size: 1rem; line-height: 1.9;
+      color: #3a3a3c; font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 3rem 2rem;
+      border-top: 1px solid #e8e8ec;
+    }
+    .footer-nav {
+      display: flex; gap: 2rem; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .footer-nav a {
+      font-size: 0.9rem; color: #6e6e73;
+      transition: color 0.3s;
+    }
+    .footer-nav a:hover { color: #1d1d1f; }
+    .copyright {
+      font-size: 0.8rem; color: #6e6e73; font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .project-hero { padding: 6rem 1.5rem 3rem; }
+      .gallery { padding: 2rem 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-logo">孙琪</a>
+    <a href="index.html#works" class="nav-back"><i class="fa-solid fa-arrow-left"></i> 返回作品集</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="project-hero">
+    <div class="project-category">智能硬件设计</div>
+    <h1 class="project-title">小布智能家庭机器人</h1>
+    <p class="project-en">Xiaobu Smart Home Robot</p>
+    <p class="project-desc">
+      一款面向现代家庭场景的智能陪伴机器人，集成语音交互、情感识别与智能家居控制功能。圆润亲和的外观设计降低了科技产品的距离感，柔和的灯光反馈系统让人机交互更加自然流畅。
+    </p>
+    <div class="project-tags">
+      <span>工业设计</span>
+      <span>智能硬件</span>
+      <span>CMF设计</span>
+      <span>人机交互</span>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="images/小布智能家庭机器人-效果图1.png" alt="小布智能家庭机器人主视图">
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/小布智能家庭机器人-效果图2.png" alt="小布智能家庭机器人细节">
+      </div>
+      <div class="gallery-item">
+        <img src="images/小布智能家庭机器人-效果图3.png" alt="小布智能家庭机器人场景">
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/小布智能家庭机器人.png" alt="小布智能家庭机器人完整展板">
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="project-details">
+    <div class="detail-section">
+      <h3>设计理念</h3>
+      <p>小布的设计灵感来源于家庭成员之间的温暖陪伴。我们希望通过圆润柔和的造型语言，打破传统机器人冰冷的科技感，让它成为家庭中自然的一员。</p>
+      <p>产品采用简洁的白色主色调，搭配柔和的灯光系统，能够根据不同的交互场景呈现不同的情感状态，让人机交互更加生动有趣。</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>核心功能</h3>
+      <p><strong>智能语音交互：</strong>支持自然语言对话，可以回答问题、播放音乐、讲故事等。</p>
+      <p><strong>情感识别：</strong>通过摄像头和传感器识别家庭成员的情绪状态，提供个性化的陪伴服务。</p>
+      <p><strong>智能家居控制：</strong>作为智能家居的控制中枢，可以语音控制灯光、空调、窗帘等设备。</p>
+    </div>
+
+    <div class="detail-section">
+      <h3>设计亮点</h3>
+      <p>产品的CMF设计经过精心考量，采用亲肤材质和圆润的边角处理，确保与儿童和老人的安全互动。底部的移动底座采用静音设计，不会打扰家庭成员的日常生活。</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-nav">
+      <a href="index.html">首页</a>
+      <a href="index.html#about">关于</a>
+      <a href="index.html#works">作品</a>
+      <a href="index.html#contact">联系</a>
+    </div>
+    <p class="copyright">&copy; 2026 孙琪 &mdash; 保留所有权利</p>
+  </footer>
+
+</body>
+</html>

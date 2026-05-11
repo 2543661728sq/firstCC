@@ -84,39 +84,32 @@
     .hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
-      background: #1d1d1f;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
       overflow: hidden;
     }
-    .hero-grid-bg {
+    .hero-overlay {
       position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    .hero-grain {
-      position: absolute; inset: 0;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-repeat: repeat; background-size: 256px 256px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
     }
     .hero-float {
       position: absolute;
-      width: 300px; height: 300px;
+      width: 400px; height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-      top: 20%; right: 15%;
-      animation: float 8s ease-in-out infinite;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      top: 10%; right: 10%;
+      animation: float 12s ease-in-out infinite;
+      filter: blur(60px);
     }
     .hero-float-2 {
       position: absolute;
-      width: 200px; height: 200px;
+      width: 350px; height: 350px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
-      bottom: 25%; left: 10%;
-      animation: float 10s ease-in-out infinite reverse;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      bottom: 15%; left: 5%;
+      animation: float 15s ease-in-out infinite reverse;
+      filter: blur(60px);
     }
-    @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-30px) scale(1.05); } 66% { transform: translate(-20px,20px) scale(0.95); } }
+    @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-40px) scale(1.1); } }
     .hero-content {
       position: relative; z-index: 2; text-align: center;
       padding: 2rem;
@@ -190,9 +183,22 @@
     /* About */
     #about { padding-top: 8rem; padding-bottom: 8rem; }
     .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 300px 1fr;
       gap: 4rem; align-items: start;
     }
+    .about-photo-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    .about-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about-content { display: flex; flex-direction: column; gap: 2rem; }
     .about-text p {
       font-size: 1rem; line-height: 1.9; color: #3a3a3c;
       margin-bottom: 1.2rem; font-weight: 300;
@@ -245,6 +251,7 @@
       background: #fff; cursor: pointer;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.4s;
+      display: block;
     }
     .project-card:hover {
       transform: translateY(-4px);
@@ -298,12 +305,11 @@
     /* Works Grid Layout */
     .works-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-auto-rows: 220px;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-rows: 280px;
       gap: 1rem;
     }
-    .works-grid .project-card:nth-child(1) { grid-row: span 2; }
-    .works-grid .project-card:nth-child(3) { grid-row: span 1; }
+    .works-grid .project-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
     .works-grid .project-card:nth-child(4) { grid-column: span 2; }
 
     /* Second row */
@@ -456,7 +462,10 @@
       .nav-links a { font-size: 0.75rem; }
 
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .works-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; }
+      .about-photo-wrap { max-width: 300px; margin: 0 auto; }
+      .works-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
+      .works-grid .project-card:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .works-grid .project-card:nth-child(4) { grid-column: span 2; }
       .works-grid-2 { grid-template-columns: 1fr 1fr; }
       .works-grid-2 .project-card:last-child { grid-column: span 2; }
 
@@ -467,8 +476,8 @@
     }
     @media (max-width: 600px) {
       .section { padding: 4rem 1.2rem; }
-      .works-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
-      .works-grid .project-card:nth-child(1) { grid-row: span 1; }
+      .works-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+      .works-grid .project-card:nth-child(1) { grid-column: span 1; grid-row: span 1; }
       .works-grid .project-card:nth-child(4) { grid-column: span 1; }
       .works-grid-2 { grid-template-columns: 1fr; }
       .works-grid-2 .project-card:last-child { grid-column: span 1; }
@@ -498,8 +507,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-grain"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-float"></div>
     <div class="hero-float-2"></div>
     <div class="hero-content">
@@ -524,27 +532,36 @@
   <section class="section" id="about">
     <div class="section-tag">About</div>
     <div class="about-grid">
-      <div class="about-text">
-        <h2 class="section-title">关于我</h2>
-        <p>我是孙琪，一名产品设计师，硕士毕业于浙江师范大学设计专业。我致力于通过系统化的设计思维，将功能性与美学融合，创造出有温度、有意义的用户体验。</p>
-        <p>我的设计实践涵盖医疗健康产品、智能硬件、婴幼儿产品及公共设施等多个领域。我相信好的设计应当服务于人，在解决问题的基础上带来情感上的共鸣与愉悦。</p>
+      <div class="about-photo-wrap">
+        <img src="images/个人照片.png" alt="孙琪">
       </div>
-      <div class="about-details">
-        <div class="about-item">
-          <span class="label">姓名</span>
-          <span class="value">孙琪</span>
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">关于我</h2>
+          <p>我是孙琪，一名产品设计师，硕士毕业于浙江师范大学设计专业。我致力于通过系统化的设计思维，将功能性与美学融合，创造出有温度、有意义的用户体验。</p>
+          <p>我的设计实践涵盖医疗健康产品、智能硬件、婴幼儿产品及公共设施等多个领域。我相信好的设计应当服务于人，在解决问题的基础上带来情感上的共鸣与愉悦。</p>
         </div>
-        <div class="about-item">
-          <span class="label">专业</span>
-          <span class="value">设计（硕士）</span>
-        </div>
-        <div class="about-item">
-          <span class="label">院校</span>
-          <span class="value">浙江师范大学</span>
-        </div>
-        <div class="about-item">
-          <span class="label">出生</span>
-          <span class="value">2000.05</span>
+        <div class="about-details">
+          <div class="about-item">
+            <span class="label">姓名</span>
+            <span class="value">孙琪</span>
+          </div>
+          <div class="about-item">
+            <span class="label">邮箱</span>
+            <span class="value">2543661728@qq.com</span>
+          </div>
+          <div class="about-item">
+            <span class="label">专业</span>
+            <span class="value">设计（硕士）</span>
+          </div>
+          <div class="about-item">
+            <span class="label">院校</span>
+            <span class="value">浙江师范大学</span>
+          </div>
+          <div class="about-item">
+            <span class="label">出生</span>
+            <span class="value">2000.05</span>
+          </div>
         </div>
       </div>
     </div>
@@ -593,49 +610,36 @@
     <div class="section-inner">
       <div class="works-grid" id="worksGrid">
         <!-- 小布智能家庭机器人 -->
-        <div class="project-card" data-project="xiaobu">
-          <img class="card-img" src="images/小布智能家庭机器人_thumb.jpg" alt="小布智能家庭机器人" loading="lazy">
-          <span class="card-thumb-label">产品效果图</span>
-          <span class="card-click-hint">查看完整展板 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+        <a href="project-xiaobu.html" class="project-card">
+          <img class="card-img" src="images/小布智能家庭机器人-效果图1.png" alt="小布智能家庭机器人" loading="lazy">
+          <span class="card-thumb-label">智能硬件</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
             <div class="card-category">智能硬件设计</div>
             <div class="card-title">小布智能家庭机器人</div>
             <div class="card-en">Xiaobu Smart Home Robot</div>
           </div>
-        </div>
+        </a>
 
-        <!-- 康复机器人-版面1 -->
-        <div class="project-card" data-project="rehab1">
-          <img class="card-img" src="images/上下肢主被动康复机器人-版面1_thumb.jpg" alt="上下肢主被动康复机器人" loading="lazy">
-          <span class="card-thumb-label">产品效果图</span>
-          <span class="card-click-hint">查看完整展板 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+        <!-- 康复机器人 -->
+        <a href="project-rehab.html" class="project-card">
+          <img class="card-img" src="images/上下肢主被动康复机器人-效果图.png" alt="上下肢主被动康复机器人" loading="lazy">
+          <span class="card-thumb-label">医疗设计</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
             <div class="card-category">医疗产品设计</div>
             <div class="card-title">上下肢主被动康复机器人</div>
             <div class="card-en">Rehabilitation Robot</div>
           </div>
-        </div>
-
-        <!-- 康复机器人-版面2 -->
-        <div class="project-card" data-project="rehab2">
-          <img class="card-img" src="images/上下肢主被动康复机器人-版面2_thumb.jpg" alt="康复机器人细节" loading="lazy">
-          <span class="card-thumb-label">产品效果图</span>
-          <span class="card-click-hint">查看完整展板 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
-          <div class="card-overlay"></div>
-          <div class="card-info">
-            <div class="card-category">医疗产品设计</div>
-            <div class="card-title">康复机器人 · 细节展示</div>
-            <div class="card-en">Rehab Robot Details</div>
-          </div>
-        </div>
+        </a>
 
         <!-- 潮汐卫士 -->
         <div class="project-card" data-project="tide">
-          <img class="card-img" src="images/潮汐卫士-智能潮汐预警与救援系统_thumb.jpg" alt="潮汐卫士" loading="lazy">
-          <span class="card-thumb-label">产品效果图</span>
-          <span class="card-click-hint">查看完整展板 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <img class="card-img" src="images/潮汐卫士-智能潮汐预警与救援系统.jpg" alt="潮汐卫士" loading="lazy">
+          <span class="card-thumb-label">公共设施</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
             <div class="card-category">公共设施设计</div>
@@ -643,14 +647,27 @@
             <div class="card-en">Tide Guardian</div>
           </div>
         </div>
+
+        <!-- 初履 -->
+        <a href="project-baby.html" class="project-card">
+          <img class="card-img" src="images/初履幼儿学步手推车设计_thumb.jpg" alt="初履幼儿学步手推车" loading="lazy">
+          <span class="card-thumb-label">婴幼儿产品</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <div class="card-category">婴幼儿产品设计</div>
+            <div class="card-title">初履 · 幼儿学步手推车</div>
+            <div class="card-en">ChuLv Baby Walker</div>
+          </div>
+        </a>
       </div>
 
       <div class="works-grid-2" id="worksGrid2">
         <!-- 睿护 -->
         <div class="project-card" data-project="ruihu">
-          <img class="card-img" src="images/睿护-未来医疗机器人_thumb.jpg" alt="睿护-未来医疗机器人" loading="lazy">
-          <span class="card-thumb-label">产品效果图</span>
-          <span class="card-click-hint">查看完整展板 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <img class="card-img" src="images/睿护-未来医疗机器人.jpg" alt="睿护-未来医疗机器人" loading="lazy">
+          <span class="card-thumb-label">概念设计</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
             <div class="card-category">概念设计</div>
@@ -659,29 +676,29 @@
           </div>
         </div>
 
-        <!-- 初履 -->
-        <div class="project-card" data-project="baby">
-          <img class="card-img" src="images/初履幼儿学步手推车设计_thumb.jpg" alt="初履幼儿学步手推车" loading="lazy">
-          <span class="card-thumb-label">产品效果图</span>
-          <span class="card-click-hint">查看完整展板 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
-          <div class="card-overlay"></div>
-          <div class="card-info">
-            <div class="card-category">婴幼儿产品设计</div>
-            <div class="card-title">初履 · 幼儿学步手推车</div>
-            <div class="card-en">ChuLv Baby Walker</div>
-          </div>
-        </div>
-
-        <!-- 景观 -->
-        <div class="project-card" data-project="landscape">
-          <img class="card-img" src="images/景观作品集.jpg" alt="景观作品集" loading="lazy" style="object-fit: cover;">
-          <span class="card-thumb-label">景观作品集</span>
-          <span class="card-click-hint">点击查看 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+        <!-- 花园景观 -->
+        <div class="project-card" data-project="garden">
+          <img class="card-img" src="images/景观作品-花园设计.jpg" alt="花园景观设计" loading="lazy" style="object-fit: cover;">
+          <span class="card-thumb-label">景观设计</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
             <div class="card-category">景观设计</div>
-            <div class="card-title">景观作品集</div>
-            <div class="card-en">Landscape Portfolio</div>
+            <div class="card-title">花园景观设计</div>
+            <div class="card-en">Garden Landscape Design</div>
+          </div>
+        </div>
+
+        <!-- 露营基地 -->
+        <div class="project-card" data-project="camping">
+          <img class="card-img" src="images/景观作品-露营基地.jpg" alt="露营基地景观设计" loading="lazy" style="object-fit: cover;">
+          <span class="card-thumb-label">景观设计</span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <div class="card-overlay"></div>
+          <div class="card-info">
+            <div class="card-category">景观设计</div>
+            <div class="card-title">露营基地景观设计</div>
+            <div class="card-en">Camping Site Landscape Design</div>
           </div>
         </div>
       </div>
@@ -693,7 +710,7 @@
     <div class="section-tag">Contact</div>
     <h2 class="section-title">联系我</h2>
     <p class="section-desc" style="margin: 0 auto 1rem;">期待与您的合作</p>
-    <a href="mailto:sunqi@design.com" class="contact-email">sunqi@design.com</a>
+    <a href="mailto:2543661728@qq.com" class="contact-email">2543661728@qq.com</a>
     <div class="contact-social">
       <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
       <a href="#" aria-label="站酷"><i class="fa-solid fa-cube"></i></a>
@@ -736,23 +753,18 @@
         en: 'Xiaobu Smart Home Robot',
         desc: '一款面向现代家庭场景的智能陪伴机器人，集成语音交互、情感识别与智能家居控制功能。圆润亲和的外观设计降低了科技产品的距离感，柔和的灯光反馈系统让人机交互更加自然流畅。',
         tags: ['工业设计', '智能硬件', 'CMF设计', '人机交互'],
+        thumbnail: 'images/小布智能家庭机器人-效果图1.png',
         img: 'images/小布智能家庭机器人.png'
       },
-      rehab1: {
+      rehab: {
         category: '医疗产品设计',
         title: '上下肢主被动康复机器人',
         en: 'Upper & Lower Limb Rehabilitation Robot',
         desc: '针对脑卒中及术后患者的康复训练设备，支持主动与被动两种训练模式。通过精准的动力输出与智能传感反馈，帮助患者循序渐进地恢复上下肢运动功能，同时为康复师提供数据化的训练评估。',
         tags: ['医疗设计', '康复设备', '人机工程', '机械设计'],
-        img: 'images/上下肢主被动康复机器人-版面1.jpg'
-      },
-      rehab2: {
-        category: '医疗产品设计',
-        title: '康复机器人 · 细节展示',
-        en: 'Rehabilitation Robot · Detail Views',
-        desc: '从多角度展示康复机器人的设计细节，包括交互控制面板、座椅调节机构、绑带固定系统以及临床使用场景。严谨的人机工程学考量贯穿每个零部件。',
-        tags: ['医疗设计', '细节设计', '使用场景'],
-        img: 'images/上下肢主被动康复机器人-版面2.jpg'
+        thumbnail: 'images/上下肢主被动康复机器人-效果图.png',
+        img: 'images/上下肢主被动康复机器人-版面1.jpg',
+        extraImages: ['images/上下肢主被动康复机器人-版面2.jpg']
       },
       tide: {
         category: '公共设施设计',
@@ -760,15 +772,8 @@
         en: 'Tide Guardian · Warning & Rescue System',
         desc: '为沿海城市设计的智能潮汐预警与救援系统，集实时潮汐监测、智能预警发布与自动救援响应于一体。模块化的结构设计便于在海岸线灵活部署，为公众提供全方位的安全保障。',
         tags: ['公共设计', '救援系统', '智能预警', '模块化设计'],
+        thumbnail: 'images/潮汐卫士-智能潮汐预警与救援系统.jpg',
         img: 'images/潮汐卫士-智能潮汐预警与救援系统.jpg'
-      },
-      ruihu: {
-        category: '概念设计',
-        title: '睿护 · 未来医疗机器人',
-        en: 'RuiHu · Future Medical Robot',
-        desc: '面向未来智慧医院场景的医疗机器人概念设计，融合AI辅助诊断、手术支持与病房巡检等功能。极富未来感的造型语言与柔和的灯光系统，传递出科技医疗的人文关怀。',
-        tags: ['概念设计', '医疗机器人', '未来感', 'AI'],
-        img: 'images/睿护-未来医疗机器人.jpg'
       },
       baby: {
         category: '婴幼儿产品设计',
@@ -776,16 +781,35 @@
         en: 'ChuLv Baby Walker',
         desc: '专为初学步行的婴幼儿设计的手推车产品。在确保安全性的前提下，通过趣味性的形态语言和丰富的色彩组合，激发宝宝的探索欲望。结构稳定、材质安全，陪伴宝宝迈出人生第一步。',
         tags: ['婴幼儿', '产品设计', '安全设计', '色彩研究'],
+        thumbnail: 'images/初履幼儿学步手推车-效果图.png',
         img: 'images/初履幼儿学步手推车设计.png'
       },
-      landscape: {
+      ruihu: {
+        category: '概念设计',
+        title: '睿护 · 未来医疗机器人',
+        en: 'RuiHu · Future Medical Robot',
+        desc: '面向未来智慧医院场景的医疗机器人概念设计，融合AI辅助诊断、手术支持与病房巡检等功能。极富未来感的造型语言与柔和的灯光系统，传递出科技医疗的人文关怀。',
+        tags: ['概念设计', '医疗机器人', '未来感', 'AI'],
+        thumbnail: 'images/睿护-未来医疗机器人.jpg',
+        img: 'images/睿护-未来医疗机器人.jpg'
+      },
+      garden: {
         category: '景观设计',
-        title: '景观作品集',
-        en: 'Landscape Architecture Portfolio',
-        desc: '涵盖城市公园、滨水空间与生态修复等多个景观设计项目的作品合集，展现跨领域的设计视野与综合解决问题的能力。',
-        tags: ['景观设计', '城市规划', '生态修复'],
-        img: 'images/景观作品集.pdf',
-        isPdf: true
+        title: '花园景观设计',
+        en: 'Garden Landscape Design',
+        desc: '融合自然美学与功能性的花园景观设计，通过植物配置、空间布局与材质选择，营造出宁静舒适的户外空间。注重生态可持续性与人文关怀的平衡。',
+        tags: ['景观设计', '花园设计', '植物配置', '生态设计'],
+        thumbnail: 'images/景观作品-花园设计.jpg',
+        img: 'images/景观作品-花园设计.jpg'
+      },
+      camping: {
+        category: '景观设计',
+        title: '露营基地景观设计',
+        en: 'Camping Site Landscape Design',
+        desc: '面向户外休闲的露营基地景观规划，结合地形特点与使用需求，打造亲近自然的露营体验空间。设计兼顾功能分区、动线组织与环境保护。',
+        tags: ['景观设计', '露营基地', '户外空间', '场地规划'],
+        thumbnail: 'images/景观作品-露营基地.jpg',
+        img: 'images/景观作品-露营基地.jpg'
       }
     };
 
@@ -864,11 +888,6 @@
         const key = card.dataset.project;
         const data = projects[key];
         if (!data) return;
-
-        if (data.isPdf) {
-          window.open(data.img, '_blank');
-          return;
-        }
 
         modalCategory.textContent = data.category;
         modalTitle.textContent = data.title;
