@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ELECTRON_MIRROR=\"https://npmmirror.com/mirrors/electron/\" npm install electron)",
+      "Bash(cp 'C:\\\\建模软件\\\\cursor\\\\firstCC\\\\pomodoro\\\\dist\\\\番茄钟.zip' __TRACKED_VAR__/)",
+      "Bash(cp 'C:\\\\建模软件\\\\cursor\\\\firstCC\\\\pomodoro\\\\dist\\\\番茄钟.7z' __TRACKED_VAR__/)",
+      "mcp__ide__executeCode"
+    ]
+  }
+}
