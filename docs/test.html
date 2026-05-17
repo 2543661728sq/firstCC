@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试页面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .status {
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      background: #f0f0f0;
+    }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+    h1 { color: #333; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>🔍 网站测试页面</h1>
+
+  <div class="status success">
+    <strong>✅ 测试页面加载成功！</strong>
+    <p>如果你能看到这个页面，说明GitHub Pages已经正常工作。</p>
+  </div>
+
+  <div class="status">
+    <strong>📱 当前访问信息：</strong>
+    <p>User Agent: <span id="ua"></span></p>
+    <p>屏幕宽度: <span id="width"></span>px</p>
+    <p>当前时间: <span id="time"></span></p>
+  </div>
+
+  <div class="status">
+    <strong>🔗 链接测试：</strong>
+    <p><a href="index.html">→ 点击这里访问主页</a></p>
+    <p><a href="css/style.css">→ 测试CSS文件</a></p>
+    <p><a href="js/main.js">→ 测试JS文件</a></p>
+  </div>
+
+  <div class="status">
+    <strong>📝 说明：</strong>
+    <p>1. 如果能看到这个页面，说明网站已部署成功</p>
+    <p>2. 点击上面的"访问主页"链接</p>
+    <p>3. 如果主页打不开，请截图发给我</p>
+  </div>
+
+  <script>
+    document.getElementById('ua').textContent = navigator.userAgent;
+    document.getElementById('width').textContent = window.innerWidth;
+    document.getElementById('time').textContent = new Date().toLocaleString('zh-CN');
+  </script>
+</body>
+</html>
