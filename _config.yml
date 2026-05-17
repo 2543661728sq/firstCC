@@ -1,0 +1,19 @@
+# GitHub Pages 配置文件
+# 这个文件确保 GitHub Pages 正确部署
+
+# 网站根目录
+baseurl: "/firstCC"
+url: "https://2543661728sq.github.io"
+
+# 主题（使用默认）
+theme: jekyll-theme-minimal
+
+# 包含的文件
+include:
+  - docs
+
+# 排除的文件
+exclude:
+  - .claude
+  - node_modules
+  - README.md
