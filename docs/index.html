@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" style="color-scheme: light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="孙琪的个人作品集 - 浙江师范大学设计专业研究生，专注于工业设计、产品设计、医疗设计、智能硬件等领域">
   <meta name="keywords" content="孙琪,产品设计,工业设计,作品集,浙江师范大学,设计师">
   <meta name="author" content="孙琪">
+  <meta name="theme-color" content="#fafafa">
   <title>孙琪 | 产品设计作品集</title>
+
+  <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <!-- Preload critical resources -->
   <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="js/main.js" as="script">
+  <link rel="preload" href="images/动态背景图.mp4" as="video" type="video/mp4">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" as="style">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -23,16 +31,16 @@
 
   <!-- Loader -->
   <div id="loader">
-    <div class="loader-text">加载中</div>
+    <div class="loader-text">加载中…</div>
   </div>
 
   <!-- Nav -->
   <nav id="nav">
     <div class="nav-logo">孙琪</div>
     <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
     <ul class="nav-links">
       <li><a href="#about">关于</a></li>
@@ -43,7 +51,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <video class="hero-video-bg" autoplay loop muted playsinline preload="auto">
+    <video class="hero-video-bg" autoplay loop muted playsinline preload="auto" width="1920" height="1080" poster="images/video-poster.jpg">
       <source src="images/动态背景图.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
@@ -53,11 +61,15 @@
       <h1 class="hero-name">
         <span class="hero-name-text">孙琪</span>
       </h1>
-      <p class="hero-sub">以设计思维探索人与产品的和谐共生</p>
+      <p class="hero-sub">用设计创造更好的体验</p>
+      <div class="hero-cta">
+        <a href="#works" class="btn-primary">查看作品</a>
+        <a href="#contact" class="btn-secondary">联系合作</a>
+      </div>
       <div class="hero-line"></div>
       <div class="hero-info">
-        <span><i class="fa-solid fa-graduation-cap"></i>浙江师范大学 · 研究生</span>
-        <span><i class="fa-regular fa-calendar"></i>2000.05</span>
+        <span><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>浙江师范大学&nbsp;·&nbsp;研究生</span>
+        <span><i class="fa-regular fa-calendar" aria-hidden="true"></i>2000.05</span>
       </div>
     </div>
     <div class="scroll-indicator">
@@ -69,9 +81,10 @@
   <!-- About -->
   <section class="section" id="about">
     <div class="section-tag">About</div>
+
     <div class="about-grid">
       <div class="about-photo-wrap">
-        <img src="images/个人照片.png" alt="孙琪">
+        <img src="images/个人照片.png" alt="孙琪" loading="eager" decoding="async">
       </div>
       <div class="about-content">
         <div class="about-text">
@@ -143,6 +156,13 @@
           <span class="skill-tag">日语N2</span>
         </div>
       </div>
+      <div class="skill-group">
+        <h4>Agent 工具</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude Code</span>
+          <span class="skill-tag">Cursor</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -160,53 +180,69 @@
       <div class="works-grid" id="worksGrid">
         <!-- 小布智能家庭机器人 -->
         <a href="project-xiaobu.html" class="project-card">
-          <img class="card-img" src="images/小布智能家庭机器人-效果图1.png" alt="小布智能家庭机器人" loading="lazy">
+          <img class="card-img" src="images/小布智能家庭机器人-效果图1.png" alt="小布智能家庭机器人" loading="lazy" decoding="async" width="800" height="600">
           <span class="card-thumb-label">智能硬件</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">智能硬件设计</div>
+            <div class="card-category">智能硬件设计 · 2024</div>
             <div class="card-title">小布智能家庭机器人</div>
             <div class="card-en">Xiaobu Smart Home Robot</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-user"></i>独立完成</span>
+              <span class="impact-tag"><i class="fa-solid fa-clock"></i>3个月</span>
+            </div>
           </div>
         </a>
 
         <!-- 康复机器人 -->
         <a href="project-rehab.html" class="project-card">
-          <img class="card-img" src="images/上下肢主被动康复机器人-效果图.png" alt="上下肢主被动康复机器人" loading="lazy">
+          <img class="card-img" src="images/上下肢主被动康复机器人-效果图.png" alt="上下肢主被动康复机器人" loading="lazy" decoding="async" width="800" height="600">
           <span class="card-thumb-label">医疗设计</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">医疗产品设计</div>
+            <div class="card-category">医疗产品设计 · 2023</div>
             <div class="card-title">上下肢主被动康复机器人</div>
             <div class="card-en">Rehabilitation Robot</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-trophy"></i>设计竞赛入围</span>
+              <span class="impact-tag"><i class="fa-solid fa-users"></i>团队协作</span>
+            </div>
           </div>
         </a>
 
         <!-- 潮汐卫士 -->
         <a href="project-tide.html" class="project-card">
-          <img class="card-img" src="images/潮汐卫士-智能潮汐预警与救援系统.jpg" alt="潮汐卫士" loading="lazy">
+          <img class="card-img" src="images/潮汐卫士-智能潮汐预警与救援系统.jpg" alt="潮汐卫士" loading="lazy" decoding="async" width="800" height="600">
           <span class="card-thumb-label">公共设施</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">公共设施设计</div>
+            <div class="card-category">公共设施设计 · 2023</div>
             <div class="card-title">潮汐卫士</div>
             <div class="card-en">Tide Guardian</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-lightbulb"></i>创新方案</span>
+              <span class="impact-tag"><i class="fa-solid fa-shield"></i>安全系统</span>
+            </div>
           </div>
         </a>
 
         <!-- 初履 -->
         <a href="project-baby.html" class="project-card">
-          <img class="card-img" src="images/初履幼儿学步手推车设计_thumb.jpg" alt="初履幼儿学步手推车" loading="lazy">
+          <img class="card-img" src="images/初履幼儿学步手推车设计_thumb.jpg" alt="初履幼儿学步手推车" loading="lazy" decoding="async" width="800" height="600">
           <span class="card-thumb-label">婴幼儿产品</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">婴幼儿产品设计</div>
+            <div class="card-category">婴幼儿产品设计 · 2024</div>
             <div class="card-title">初履 · 幼儿学步手推车</div>
             <div class="card-en">ChuLv Baby Walker</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-heart"></i>安全优先</span>
+              <span class="impact-tag"><i class="fa-solid fa-palette"></i>CMF研究</span>
+            </div>
           </div>
         </a>
       </div>
@@ -214,40 +250,52 @@
       <div class="works-grid-2" id="worksGrid2">
         <!-- 睿护 -->
         <a href="project-ruihu.html" class="project-card">
-          <img class="card-img" src="images/睿护-未来医疗机器人.jpg" alt="睿护-未来医疗机器人" loading="lazy">
+          <img class="card-img" src="images/睿护-未来医疗机器人.jpg" alt="睿护-未来医疗机器人" loading="lazy" decoding="async" width="800" height="600">
           <span class="card-thumb-label">概念设计</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">概念设计</div>
+            <div class="card-category">概念设计 · 2024</div>
             <div class="card-title">睿护 · 未来医疗机器人</div>
             <div class="card-en">RuiHu · Future Medical Robot</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-rocket"></i>前瞻设计</span>
+              <span class="impact-tag"><i class="fa-solid fa-brain"></i>AI集成</span>
+            </div>
           </div>
         </a>
 
         <!-- 花园景观 -->
         <a href="project-garden.html" class="project-card">
-          <img class="card-img" src="images/景观作品-花园设计.jpg" alt="花园景观设计" loading="lazy" style="object-fit: cover;">
+          <img class="card-img" src="images/景观作品-花园设计.jpg" alt="花园景观设计" loading="lazy" decoding="async" width="800" height="600" style="object-fit: cover;">
           <span class="card-thumb-label">景观设计</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">景观设计</div>
+            <div class="card-category">景观设计 · 2023</div>
             <div class="card-title">花园景观设计</div>
             <div class="card-en">Garden Landscape Design</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-leaf"></i>生态友好</span>
+              <span class="impact-tag"><i class="fa-solid fa-pencil"></i>手绘渲染</span>
+            </div>
           </div>
         </a>
 
         <!-- 露营基地 -->
         <a href="project-camping.html" class="project-card">
-          <img class="card-img" src="images/景观作品-露营基地.jpg" alt="露营基地景观设计" loading="lazy" style="object-fit: cover;">
+          <img class="card-img" src="images/景观作品-露营基地.jpg" alt="露营基地景观设计" loading="lazy" decoding="async" width="800" height="600" style="object-fit: cover;">
           <span class="card-thumb-label">景观设计</span>
-          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" style="margin-left: 0.3rem;"></i></span>
+          <span class="card-click-hint">查看详情 <i class="fa-solid fa-arrow-right" aria-hidden="true" style="margin-left: 0.3rem;"></i></span>
           <div class="card-overlay"></div>
           <div class="card-info">
-            <div class="card-category">景观设计</div>
+            <div class="card-category">景观设计 · 2023</div>
             <div class="card-title">露营基地景观设计</div>
             <div class="card-en">Camping Site Landscape Design</div>
+            <div class="card-impact">
+              <span class="impact-tag"><i class="fa-solid fa-campground"></i>户外体验</span>
+              <span class="impact-tag"><i class="fa-solid fa-map"></i>场地规划</span>
+            </div>
           </div>
         </a>
       </div>
@@ -261,9 +309,9 @@
     <p class="section-desc" style="margin: 0 auto 1rem;">期待与您的合作</p>
     <a href="mailto:2543661728@qq.com" class="contact-email">2543661728@qq.com</a>
     <div class="contact-social">
-      <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
-      <a href="#" aria-label="站酷"><i class="fa-solid fa-cube"></i></a>
-      <a href="#" aria-label="微信"><i class="fa-brands fa-weixin"></i></a>
+      <a href="https://www.behance.net/" aria-label="Behance" target="_blank" rel="noopener"><i class="fa-brands fa-behance" aria-hidden="true"></i></a>
+      <a href="https://www.zcool.com.cn/" aria-label="站酷" target="_blank" rel="noopener"><i class="fa-solid fa-cube" aria-hidden="true"></i></a>
+      <a href="#" aria-label="微信" onclick="alert('请添加微信：[您的微信号]'); return false;"><i class="fa-brands fa-weixin" aria-hidden="true"></i></a>
     </div>
   </section>
 
@@ -280,11 +328,11 @@
   <div class="modal" id="projectModal">
     <div class="modal-backdrop"></div>
     <div class="modal-content">
-      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
-      <button class="modal-open-btn" id="modalOpenBtn" title="在新标签页中打开原图"><i class="fa-regular fa-expand"></i> 查看原图</button>
+      <button class="modal-close" id="modalClose" aria-label="关闭弹窗"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <button class="modal-open-btn" id="modalOpenBtn" title="在新标签页中打开原图"><i class="fa-regular fa-expand" aria-hidden="true"></i> 查看原图</button>
       <div class="modal-image-wrap">
-        <img id="modalImg" src="" alt="">
-        <span class="zoom-hint"><i class="fa-regular fa-image"></i> 完整展板</span>
+        <img id="modalImg" src="" alt="项目详情图片">
+        <span class="zoom-hint"><i class="fa-regular fa-image" aria-hidden="true"></i> 完整展板</span>
       </div>
       <div class="modal-body">
         <div class="modal-category" id="modalCategory"></div>
@@ -296,8 +344,8 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

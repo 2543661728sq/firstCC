@@ -66,32 +66,44 @@ const projects = {
   }
 };
 
-// ========== GSAP Animations ==========
-gsap.registerPlugin(ScrollTrigger);
-
-// Loader
+// ========== Page Loader ==========
 window.addEventListener('load', () => {
-  gsap.to('#loader', { opacity: 0, visibility: 'hidden', duration: 0.8, delay: 0.5 });
+  const loader = document.getElementById('loader');
+  if (loader) {
+    // Use requestAnimationFrame for smooth animation
+    requestAnimationFrame(() => {
+      loader.classList.add('hidden');
+      // Remove from DOM after animation completes
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 600);
+    });
+  }
 });
 
-// Hero animations
-gsap.from('.hero-badge', { y: 30, opacity: 0, duration: 1, delay: 1, ease: 'power3.out' });
-gsap.from('.hero-name-text', { y: 60, opacity: 0, duration: 1.2, delay: 1.2, ease: 'power4.out' });
-gsap.from('.hero-sub', { y: 30, opacity: 0, duration: 1, delay: 1.4, ease: 'power3.out' });
-gsap.from('.hero-line', { scaleX: 0, duration: 1, delay: 1.6, ease: 'power3.out', transformOrigin: 'center' });
-gsap.from('.hero-info span', { y: 20, opacity: 0, duration: 0.8, delay: 1.8, stagger: 0.15, ease: 'power3.out' });
-gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 1, delay: 2.2, ease: 'power3.out' });
+// ========== GSAP Animations (if GSAP is loaded) ==========
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
 
-// Nav scroll effect
-const nav = document.getElementById('nav');
-ScrollTrigger.create({
-  start: 'top -80',
-  onEnter: () => nav.classList.add('scrolled'),
-  onLeaveBack: () => nav.classList.remove('scrolled')
-});
+  // Hero animations
+  gsap.from('.hero-badge', { y: 30, opacity: 0, duration: 1, delay: 1, ease: 'power3.out' });
+  gsap.from('.hero-name-text', { y: 60, opacity: 0, duration: 1.2, delay: 1.2, ease: 'power4.out' });
+  gsap.from('.hero-sub', { y: 30, opacity: 0, duration: 1, delay: 1.4, ease: 'power3.out' });
+  gsap.from('.hero-cta', { y: 30, opacity: 0, duration: 1, delay: 1.5, ease: 'power3.out' });
+  gsap.from('.hero-line', { scaleX: 0, duration: 1, delay: 1.6, ease: 'power3.out', transformOrigin: 'center' });
+  gsap.from('.hero-info span', { y: 20, opacity: 0, duration: 0.8, delay: 1.8, stagger: 0.15, ease: 'power3.out' });
+  gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 1, delay: 2.2, ease: 'power3.out' });
 
-// About section animations
-gsap.from('.about-text', {
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  ScrollTrigger.create({
+    start: 'top -80',
+    onEnter: () => nav.classList.add('scrolled'),
+    onLeaveBack: () => nav.classList.remove('scrolled')
+  });
+
+  // About section animations
+  gsap.from('.about-text', {
   scrollTrigger: { trigger: '.about-text', start: 'top 80%' },
   y: 40, opacity: 0, duration: 1, ease: 'power3.out'
 });
@@ -230,5 +242,121 @@ document.querySelectorAll('.project-card').forEach(card => {
   });
   card.addEventListener('mouseleave', () => {
     card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+  });
+});
+
+// ========== Achievement Numbers Animation ==========
+const animateNumber = (element, target, duration = 2000) => {
+  const start = 0;
+  const increment = target / (duration / 16);
+  let current = start;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target + '+';
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current);
+    }
+  }, 16);
+};
+
+// Intersection Observer for achievement numbers
+const achievementObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const numbers = entry.target.querySelectorAll('.achievement-number');
+      numbers.forEach(num => {
+        const target = parseInt(num.dataset.target);
+        animateNumber(num, target);
+      });
+      achievementObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const achievementsSection = document.querySelector('.achievements');
+if (achievementsSection) {
+  achievementObserver.observe(achievementsSection);
+}
+
+// ========== Scroll Animations (Intersection Observer) ==========
+const scrollAnimationObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Use requestAnimationFrame for smooth animation
+      requestAnimationFrame(() => {
+        entry.target.classList.add('visible');
+      });
+      // Unobserve after animation to improve performance
+      scrollAnimationObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe all elements with animation classes
+const animatedElements = document.querySelectorAll('.fade-in-up, .scale-in, .stagger-children');
+animatedElements.forEach(el => {
+  scrollAnimationObserver.observe(el);
+});
+
+// Fallback: Force show all animated elements after 3 seconds if they're still hidden
+// This ensures content is always visible even if IntersectionObserver fails
+setTimeout(() => {
+  animatedElements.forEach(el => {
+    if (!el.classList.contains('visible')) {
+      el.classList.add('visible');
+    }
+  });
+}, 3000);
+
+// ========== Parallax Effect for Hero Video ==========
+const heroVideo = document.querySelector('.hero-video-bg');
+if (heroVideo) {
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const heroHeight = document.querySelector('.hero').offsetHeight;
+
+        // Only apply parallax within hero section
+        if (scrolled < heroHeight) {
+          const parallaxSpeed = 0.5;
+          heroVideo.style.transform = `translateY(${scrolled * parallaxSpeed}px) translateZ(0)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+// ========== Smooth Scroll Enhancement ==========
+// Enhanced smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+
+    // Skip if it's just "#"
+    if (href === '#') return;
+
+    e.preventDefault();
+    const target = document.querySelector(href);
+
+    if (target) {
+      const navHeight = document.querySelector('nav').offsetHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
   });
 });
