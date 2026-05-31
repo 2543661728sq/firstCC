@@ -136,6 +136,8 @@ gsap.from('#contact .section-title, #contact .section-desc, #contact .contact-em
   y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
 });
 
+} // End of GSAP if block
+
 // ========== Mobile Menu Toggle ==========
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -359,4 +361,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       });
     }
   });
+});
+
+// ========== Video Hover Effect ==========
+// Play video on hover for project cards with video
+document.querySelectorAll('.project-card[data-has-video]').forEach(card => {
+  const video = card.querySelector('.card-video');
+
+  if (video) {
+    card.addEventListener('mouseenter', () => {
+      video.play().catch(err => {
+        console.log('Video play failed:', err);
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  }
 });
