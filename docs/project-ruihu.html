@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>睿护 · 未来医疗机器人 | 孙琪作品集</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,6 +60,30 @@
       margin-top: 2rem;
     }
     .back-link:hover { background: #e0e0e2; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+      margin: 0 auto 3rem;
+    }
+    .case-note {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+    .case-note h2 {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6e6e73;
+      margin-bottom: 0.75rem;
+    }
+    .case-note p {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: #1d1d1f;
+    }
   </style>
 </head>
 <body>
@@ -83,11 +108,29 @@
 
   <section class="project-content">
     <div class="project-image">
-      <img src="images/睿护-未来医疗机器人.jpg" alt="睿护 · 未来医疗机器人">
+      <img src="images/optimized/ruihu-medical-robot.jpg" alt="睿护 · 未来医疗机器人" loading="lazy" decoding="async">
     </div>
     <p class="project-desc">
       面向未来智慧医院场景的医疗机器人概念设计，融合AI辅助诊断、手术支持与病房巡检等功能。极富未来感的造型语言与柔和的灯光系统，传递出科技医疗的人文关怀。机器人配备先进的传感器阵列和机械臂系统，可协助医生完成精密手术操作，同时通过AI算法分析患者数据，提供诊断建议。流线型的外观设计降低了医疗设备的冰冷感，让患者感受到温暖与安心。
     </p>
+    <div class="case-grid">
+      <article class="case-note">
+        <h2>Challenge</h2>
+        <p>医疗机器人容易给患者带来冰冷、压迫的技术印象，需要在专业可信和人文关怀之间建立平衡。</p>
+      </article>
+      <article class="case-note">
+        <h2>Role</h2>
+        <p>负责未来医院场景设定、机器人形态语言、灯光反馈系统与功能模块整合的视觉表达。</p>
+      </article>
+      <article class="case-note">
+        <h2>Decision</h2>
+        <p>采用柔和流线、低攻击性的轮廓和清晰的信息界面，让设备既有科技感，也保留医疗环境需要的亲和度。</p>
+      </article>
+      <article class="case-note">
+        <h2>Value</h2>
+        <p>方案展示了 AI 辅助诊疗、巡检与手术支持的未来想象，也体现了医疗产品中“信任感”的造型策略。</p>
+      </article>
+    </div>
     <div style="text-align: center;">
       <a href="index.html#works" class="back-link">
         <i class="fa-solid fa-arrow-left"></i> 返回作品集

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>潮汐卫士 | 孙琪作品集</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,6 +60,30 @@
       margin-top: 2rem;
     }
     .back-link:hover { background: #e0e0e2; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+      margin: 0 auto 3rem;
+    }
+    .case-note {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+    .case-note h2 {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6e6e73;
+      margin-bottom: 0.75rem;
+    }
+    .case-note p {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: #1d1d1f;
+    }
   </style>
 </head>
 <body>
@@ -83,11 +108,29 @@
 
   <section class="project-content">
     <div class="project-image">
-      <img src="images/潮汐卫士-智能潮汐预警与救援系统.jpg" alt="潮汐卫士">
+      <img src="images/潮汐卫士-智能潮汐预警与救援系统.jpg" alt="潮汐卫士" loading="lazy" decoding="async">
     </div>
     <p class="project-desc">
       为沿海城市设计的智能潮汐预警与救援系统，集实时潮汐监测、智能预警发布与自动救援响应于一体。模块化的结构设计便于在海岸线灵活部署，为公众提供全方位的安全保障。系统通过传感器网络实时监测潮汐变化，结合AI算法预测潮汐风险，并通过多渠道发布预警信息。在紧急情况下，系统可自动触发救援装置，为被困人员争取宝贵时间。
     </p>
+    <div class="case-grid">
+      <article class="case-note">
+        <h2>Challenge</h2>
+        <p>潮汐风险具有突发性和区域差异，传统警示牌只能被动提醒，无法覆盖实时监测、远程预警与紧急救援响应。</p>
+      </article>
+      <article class="case-note">
+        <h2>Role</h2>
+        <p>完成公共设施形态推演、模块化结构构想、预警交互方式与救援场景表达，强化系统在海岸线上的可识别性。</p>
+      </article>
+      <article class="case-note">
+        <h2>Decision</h2>
+        <p>将监测、警示、救援三个功能整合为一体化节点，通过高识别度外观和信息发布模块降低游客理解成本。</p>
+      </article>
+      <article class="case-note">
+        <h2>Value</h2>
+        <p>方案从单个设施延展为公共安全系统，为海边游玩、巡检管理和应急救援提供更完整的设计闭环。</p>
+      </article>
+    </div>
     <div style="text-align: center;">
       <a href="index.html#works" class="back-link">
         <i class="fa-solid fa-arrow-left"></i> 返回作品集

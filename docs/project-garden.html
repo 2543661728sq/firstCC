@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>花园景观设计 | 孙琪作品集</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,6 +60,30 @@
       margin-top: 2rem;
     }
     .back-link:hover { background: #e0e0e2; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+      margin: 0 auto 3rem;
+    }
+    .case-note {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+    .case-note h2 {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6e6e73;
+      margin-bottom: 0.75rem;
+    }
+    .case-note p {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: #1d1d1f;
+    }
   </style>
 </head>
 <body>
@@ -83,11 +108,29 @@
 
   <section class="project-content">
     <div class="project-image">
-      <img src="images/景观作品-花园设计.jpg" alt="花园景观设计">
+      <img src="images/景观作品-花园设计.jpg" alt="花园景观设计" loading="lazy" decoding="async">
     </div>
     <p class="project-desc">
       融合自然美学与功能性的花园景观设计，通过植物配置、空间布局与材质选择，营造出宁静舒适的户外空间。注重生态可持续性与人文关怀的平衡。设计充分考虑四季变化，选择适宜的植物品种，创造丰富的视觉层次。通过合理的动线规划和功能分区，满足休憩、观赏、社交等多种需求，打造人与自然和谐共生的理想花园。
     </p>
+    <div class="case-grid">
+      <article class="case-note">
+        <h2>Challenge</h2>
+        <p>庭院空间需要同时满足观赏、休憩和日常活动，设计重点在于让功能分区自然融入景观层次。</p>
+      </article>
+      <article class="case-note">
+        <h2>Role</h2>
+        <p>完成空间布局、动线组织、植物层次配置与效果表达，将平面规划转化为可感知的花园体验。</p>
+      </article>
+      <article class="case-note">
+        <h2>Decision</h2>
+        <p>以柔和路径串联停留节点，用植物高低和材质变化建立视觉节奏，让空间既开放又有秩序。</p>
+      </article>
+      <article class="case-note">
+        <h2>Value</h2>
+        <p>方案强调生活场景与生态舒适性，展示了从平面组织到氛围营造的综合景观设计能力。</p>
+      </article>
+    </div>
     <div style="text-align: center;">
       <a href="index.html#works" class="back-link">
         <i class="fa-solid fa-arrow-left"></i> 返回作品集

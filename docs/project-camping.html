@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>露营基地景观设计 | 孙琪作品集</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -59,6 +60,30 @@
       margin-top: 2rem;
     }
     .back-link:hover { background: #e0e0e2; }
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 980px;
+      margin: 0 auto 3rem;
+    }
+    .case-note {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+    .case-note h2 {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6e6e73;
+      margin-bottom: 0.75rem;
+    }
+    .case-note p {
+      font-size: 0.96rem;
+      line-height: 1.75;
+      color: #1d1d1f;
+    }
   </style>
 </head>
 <body>
@@ -83,11 +108,29 @@
 
   <section class="project-content">
     <div class="project-image">
-      <img src="images/景观作品-露营基地.jpg" alt="露营基地景观设计">
+      <img src="images/景观作品-露营基地.jpg" alt="露营基地景观设计" loading="lazy" decoding="async">
     </div>
     <p class="project-desc">
       面向户外休闲的露营基地景观规划，结合地形特点与使用需求，打造亲近自然的露营体验空间。设计兼顾功能分区、动线组织与环境保护。通过合理的场地规划，划分露营区、活动区、服务区等功能空间，确保各区域既相对独立又有机联系。景观设计尊重原有地形地貌，最大限度保留自然植被，营造人与自然和谐共处的户外体验。
     </p>
+    <div class="case-grid">
+      <article class="case-note">
+        <h2>Challenge</h2>
+        <p>露营基地需要兼顾住宿、活动、服务和安全管理，同时避免过度开发破坏场地原有自然感。</p>
+      </article>
+      <article class="case-note">
+        <h2>Role</h2>
+        <p>负责场地功能分区、游线组织、节点体验设计与整体景观表达，强化空间使用逻辑。</p>
+      </article>
+      <article class="case-note">
+        <h2>Decision</h2>
+        <p>将露营区、公共活动区和服务区分层布置，通过连续动线连接核心节点，减少不同人群之间的干扰。</p>
+      </article>
+      <article class="case-note">
+        <h2>Value</h2>
+        <p>方案体现了从地形条件到用户体验的综合规划能力，让户外休闲空间更清晰、更舒适、更易运营。</p>
+      </article>
+    </div>
     <div style="text-align: center;">
       <a href="index.html#works" class="back-link">
         <i class="fa-solid fa-arrow-left"></i> 返回作品集

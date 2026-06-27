@@ -6,7 +6,7 @@ const projects = {
     en: 'Xiaobu Smart Home Robot',
     desc: '一款面向现代家庭场景的智能陪伴机器人，集成语音交互、情感识别与智能家居控制功能。圆润亲和的外观设计降低了科技产品的距离感，柔和的灯光反馈系统让人机交互更加自然流畅。',
     tags: ['工业设计', '智能硬件', 'CMF设计', '人机交互'],
-    thumbnail: 'images/小布智能家庭机器人-效果图1.png',
+    thumbnail: 'images/小布智能家庭机器人-效果图2.jpg',
     img: 'images/小布智能家庭机器人.png'
   },
   rehab: {
@@ -81,59 +81,63 @@ window.addEventListener('load', () => {
   }
 });
 
+const nav = document.getElementById('nav');
+
 // ========== GSAP Animations (if GSAP is loaded) ==========
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 
   // Hero animations
-  gsap.from('.hero-badge', { y: 30, opacity: 0, duration: 1, delay: 1, ease: 'power3.out' });
-  gsap.from('.hero-name-text', { y: 60, opacity: 0, duration: 1.2, delay: 1.2, ease: 'power4.out' });
-  gsap.from('.hero-sub', { y: 30, opacity: 0, duration: 1, delay: 1.4, ease: 'power3.out' });
-  gsap.from('.hero-cta', { y: 30, opacity: 0, duration: 1, delay: 1.5, ease: 'power3.out' });
+  gsap.from('.hero-badge', { y: 24, duration: 0.8, delay: 0.2, ease: 'power3.out' });
+  gsap.from('.hero-name-text', { y: 42, duration: 1, delay: 0.25, ease: 'power4.out' });
+  gsap.from('.hero-sub', { y: 24, duration: 0.8, delay: 0.35, ease: 'power3.out' });
+  gsap.from('.hero-proof span', { y: 16, duration: 0.7, delay: 0.42, stagger: 0.06, ease: 'power3.out' });
+  gsap.from('.hero-cta', { y: 24, duration: 0.8, delay: 0.48, ease: 'power3.out' });
   gsap.from('.hero-line', { scaleX: 0, duration: 1, delay: 1.6, ease: 'power3.out', transformOrigin: 'center' });
-  gsap.from('.hero-info span', { y: 20, opacity: 0, duration: 0.8, delay: 1.8, stagger: 0.15, ease: 'power3.out' });
-  gsap.from('.scroll-indicator', { y: 20, opacity: 0, duration: 1, delay: 2.2, ease: 'power3.out' });
+  gsap.from('.hero-info span', { y: 14, duration: 0.7, delay: 0.6, stagger: 0.08, ease: 'power3.out' });
+  gsap.from('.scroll-indicator', { y: 14, duration: 0.7, delay: 0.75, ease: 'power3.out' });
 
   // Nav scroll effect
-  const nav = document.getElementById('nav');
-  ScrollTrigger.create({
-    start: 'top -80',
-    onEnter: () => nav.classList.add('scrolled'),
-    onLeaveBack: () => nav.classList.remove('scrolled')
-  });
+  if (nav) {
+    ScrollTrigger.create({
+      start: 'top -80',
+      onEnter: () => nav.classList.add('scrolled'),
+      onLeaveBack: () => nav.classList.remove('scrolled')
+    });
+  }
 
   // About section animations
   gsap.from('.about-text', {
   scrollTrigger: { trigger: '.about-text', start: 'top 80%' },
-  y: 40, opacity: 0, duration: 1, ease: 'power3.out'
+  y: 32, duration: 0.8, ease: 'power3.out'
 });
 gsap.from('.about-item', {
   scrollTrigger: { trigger: '.about-details', start: 'top 80%' },
-  y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out'
+  y: 24, duration: 0.7, stagger: 0.08, ease: 'power3.out'
 });
 gsap.from('.skill-group', {
   scrollTrigger: { trigger: '.skills-container', start: 'top 80%' },
-  y: 30, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+  y: 24, duration: 0.7, stagger: 0.1, ease: 'power3.out'
 });
 
 // Works section animations
 gsap.from('.works-header', {
   scrollTrigger: { trigger: '.works-header', start: 'top 85%' },
-  y: 30, opacity: 0, duration: 0.8, ease: 'power3.out'
+  y: 24, duration: 0.7, ease: 'power3.out'
 });
 gsap.from('#worksGrid .project-card', {
   scrollTrigger: { trigger: '#worksGrid', start: 'top 80%' },
-  y: 60, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out'
+  y: 32, duration: 0.7, stagger: 0.08, ease: 'power3.out'
 });
 gsap.from('#worksGrid2 .project-card', {
   scrollTrigger: { trigger: '#worksGrid2', start: 'top 85%' },
-  y: 60, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+  y: 32, duration: 0.7, stagger: 0.08, ease: 'power3.out'
 });
 
 // Contact section
 gsap.from('#contact .section-title, #contact .section-desc, #contact .contact-email, #contact .contact-social', {
   scrollTrigger: { trigger: '#contact', start: 'top 80%' },
-  y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+  y: 24, duration: 0.7, stagger: 0.08, ease: 'power3.out'
 });
 
 } // End of GSAP if block
@@ -142,34 +146,40 @@ gsap.from('#contact .section-title, #contact .section-desc, #contact .contact-em
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-navToggle.addEventListener('click', () => {
-  navToggle.classList.toggle('active');
-  navLinks.classList.toggle('active');
-  document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-});
-
-// Close menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navToggle.classList.remove('active');
-    navLinks.classList.remove('active');
-    document.body.style.overflow = '';
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    nav?.classList.toggle('menu-open', navLinks.classList.contains('active'));
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
   });
-});
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
-    navToggle.classList.remove('active');
-    navLinks.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-});
+  // Close menu when clicking on a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      nav?.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (nav && !nav.contains(e.target) && navLinks.classList.contains('active')) {
+      navToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+      nav?.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    }
+  });
+}
 
 // ========== Back to Top Button ==========
 const backToTopBtn = document.querySelector('.back-to-top');
 
 window.addEventListener('scroll', () => {
+  if (!backToTopBtn) return;
   if (window.scrollY > 500) {
     backToTopBtn.classList.add('visible');
   } else {
@@ -177,12 +187,14 @@ window.addEventListener('scroll', () => {
   }
 });
 
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
-});
+}
 
 // ========== Modal ==========
 const modal = document.getElementById('projectModal');
@@ -196,43 +208,47 @@ const modalClose = document.getElementById('modalClose');
 const modalOpenBtn = document.getElementById('modalOpenBtn');
 let currentModalImgSrc = '';
 
-document.querySelectorAll('.project-card').forEach(card => {
-  card.addEventListener('click', (e) => {
-    // If it's a link, let it navigate
-    if (card.tagName === 'A') return;
+if (modal && modalImg && modalCategory && modalTitle && modalEn && modalDesc && modalTags) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // If it's a link, let it navigate
+      if (card.tagName === 'A') return;
 
-    e.preventDefault();
-    const key = card.dataset.project;
-    const data = projects[key];
-    if (!data) return;
+      e.preventDefault();
+      const key = card.dataset.project;
+      const data = projects[key];
+      if (!data) return;
 
-    modalCategory.textContent = data.category;
-    modalTitle.textContent = data.title;
-    modalEn.textContent = data.en;
-    modalDesc.textContent = data.desc;
-    modalTags.innerHTML = data.tags.map(t => `<span>${t}</span>`).join('');
-    modalImg.src = data.img;
-    currentModalImgSrc = data.img;
+      modalCategory.textContent = data.category;
+      modalTitle.textContent = data.title;
+      modalEn.textContent = data.en;
+      modalDesc.textContent = data.desc;
+      modalTags.innerHTML = data.tags.map(t => `<span>${t}</span>`).join('');
+      modalImg.src = data.img;
+      currentModalImgSrc = data.img;
 
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
   });
-});
 
-modalOpenBtn.addEventListener('click', () => {
-  if (currentModalImgSrc) {
-    window.open(currentModalImgSrc, '_blank');
+  if (modalOpenBtn) {
+    modalOpenBtn.addEventListener('click', () => {
+      if (currentModalImgSrc) {
+        window.open(currentModalImgSrc, '_blank');
+      }
+    });
   }
-});
 
-function closeModal() {
-  modal.classList.remove('active');
-  document.body.style.overflow = '';
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalClose?.addEventListener('click', closeModal);
+  modal.querySelector('.modal-backdrop')?.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 }
-
-modalClose.addEventListener('click', closeModal);
-modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 // ========== Smooth hover tilt effect on cards ==========
 document.querySelectorAll('.project-card').forEach(card => {
@@ -352,7 +368,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(href);
 
     if (target) {
-      const navHeight = document.querySelector('nav').offsetHeight;
+      const navHeight = document.querySelector('nav')?.offsetHeight || 0;
       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
 
       window.scrollTo({
