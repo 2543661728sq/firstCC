@@ -3,199 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="上下肢主被动康复机器人案例页，展示医疗康复设备的用户研究、训练流程、结构安全和系统设计。">
   <title>上下肢主被动康复机器人 | 孙琪作品集</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #fafafa;
-      color: #1d1d1f;
-      line-height: 1.6;
-    }
-    ::selection { background: #1d1d1f; color: #fff; }
-    img { display: block; max-width: 100%; }
-    a { text-decoration: none; color: inherit; }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 1.5rem 3rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(250,250,250,0.95);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-    }
-    .nav-logo {
-      font-size: 1.1rem; font-weight: 600; letter-spacing: 0.05em;
-      color: #1d1d1f;
-    }
-    .nav-back {
-      font-size: 0.85rem; color: #6e6e73;
-      transition: color 0.3s;
-    }
-    .nav-back:hover { color: #1d1d1f; }
-
-    .project-hero {
-      padding: 8rem 2rem 4rem;
-      max-width: 1200px; margin: 0 auto;
-      text-align: center;
-    }
-    .project-category {
-      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em;
-      color: #6e6e73; margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-    .project-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700; line-height: 1.2;
-      margin-bottom: 0.8rem;
-    }
-    .project-en {
-      font-size: 1.2rem; font-weight: 300; color: #6e6e73;
-      font-family: 'Inter', sans-serif; margin-bottom: 2rem;
-    }
-    .project-desc {
-      font-size: 1.1rem; line-height: 1.8; color: #3a3a3c;
-      max-width: 700px; margin: 0 auto 2rem;
-      font-weight: 300;
-    }
-    .project-tags {
-      display: flex; flex-wrap: wrap; gap: 0.5rem;
-      justify-content: center;
-    }
-    .project-tags span {
-      font-size: 0.8rem; padding: 0.4rem 1rem;
-      background: #f0f0f2; border-radius: 100px;
-      color: #3a3a3c; font-weight: 400;
-    }
-
-    .gallery {
-      max-width: 1400px; margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-    .gallery-item {
-      margin-bottom: 3rem;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-    .gallery-item img {
-      width: 100%; height: auto;
-      display: block;
-    }
-
-    .project-details {
-      max-width: 900px; margin: 4rem auto;
-      padding: 0 2rem;
-    }
-    .detail-section {
-      margin-bottom: 3rem;
-    }
-    .detail-section h3 {
-      font-size: 1.5rem; font-weight: 600;
-      margin-bottom: 1rem;
-    }
-    .detail-section p {
-      font-size: 1rem; line-height: 1.9;
-      color: #3a3a3c; font-weight: 300;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      text-align: center; padding: 3rem 2rem;
-      border-top: 1px solid #e8e8ec;
-    }
-    .footer-nav {
-      display: flex; gap: 2rem; justify-content: center;
-      margin-bottom: 1.5rem;
-    }
-    .footer-nav a {
-      font-size: 0.9rem; color: #6e6e73;
-      transition: color 0.3s;
-    }
-    .footer-nav a:hover { color: #1d1d1f; }
-    .copyright {
-      font-size: 0.8rem; color: #6e6e73; font-weight: 300;
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .project-hero { padding: 6rem 1.5rem 3rem; }
-      .gallery { padding: 2rem 1.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/case-study.css?v=20260705-3">
 </head>
-<body>
-
-  <nav>
-    <a href="index.html" class="nav-logo">孙琪</a>
-    <a href="index.html#works" class="nav-back"><i class="fa-solid fa-arrow-left"></i> 返回作品集</a>
+<body class="case-theme-rehab">
+  <nav class="case-nav">
+    <a href="index.html" class="case-logo">孙琪</a>
+    <a href="index.html#works" class="case-back"><i class="fa-solid fa-arrow-left"></i> 返回作品集</a>
   </nav>
 
-  <section class="project-hero">
-    <div class="project-category">医疗产品设计</div>
-    <h1 class="project-title">上下肢主被动康复机器人</h1>
-    <p class="project-en">Upper & Lower Limb Rehabilitation Robot</p>
-    <p class="project-desc">
-      针对脑卒中及术后患者的康复训练设备，支持主动与被动两种训练模式。通过精准的动力输出与智能传感反馈，帮助患者循序渐进地恢复上下肢运动功能，同时为康复师提供数据化的训练评估。
-    </p>
-    <div class="project-tags">
-      <span>医疗设计</span>
-      <span>康复设备</span>
-      <span>人机工程</span>
-      <span>机械设计</span>
-    </div>
-  </section>
+  <main>
+    <header class="case-hero">
+      <div class="case-hero-inner">
+        <div>
+          <p class="case-kicker">医疗产品设计 · 康复训练设备</p>
+          <h1 class="case-title">上下肢主被动康复机器人</h1>
+          <p class="case-summary">基于传统康复器械的外观、交互和使用体验改造，面向居家与机构康复场景。页面重点展示产品动态、结构创新、UI界面和人机安全关系，让项目逻辑集中在康复设备本身。</p>
+          <div class="case-meta" aria-label="项目标签">
+            <span>医疗康复</span>
+            <span>主被动训练</span>
+            <span>产品改造</span>
+            <span>界面设计</span>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img src="images/case-rehab/hero-render.jpg" alt="上下肢主被动康复机器人产品渲染图" width="2200" height="1237">
+        </figure>
+      </div>
+    </header>
 
-  <section class="gallery">
-    <div class="gallery-item" style="background: #000;">
-      <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block;">
-        <source src="images/上下肢康复展示视频.mp4" type="video/mp4">
-        您的浏览器不支持视频播放。
-      </video>
-    </div>
+    <section class="case-section alt">
+      <div class="case-wrap">
+        <div class="overview-grid">
+          <article class="overview-item">
+            <h3>Challenge</h3>
+            <p>传统康复器械偏冷硬，患者进入训练时容易紧张，界面反馈也不够友好。</p>
+          </article>
+          <article class="overview-item">
+            <h3>Role</h3>
+            <p>完成产品外观重塑、结构细节表达、训练动效整理和康复界面视觉设计。</p>
+          </article>
+          <article class="overview-item">
+            <h3>Decision</h3>
+            <p>用更温和的家居化形态、可旋转把手和清晰数据反馈降低使用门槛。</p>
+          </article>
+          <article class="overview-item">
+            <h3>Value</h3>
+            <p>把“被动接受训练”的器械感，转化为更主动、更可持续的康复体验。</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <div class="gallery-item">
-      <img src="images/上下肢主被动康复机器人-版面1.jpg" alt="康复机器人设计展板1">
-    </div>
+    <section class="case-section showcase-video-section">
+      <div class="case-wrap">
+        <div class="section-head">
+          <p class="section-label">Product Demo</p>
+          <h2>恢复产品展示动画，让形态、旋转结构和训练场景先被看见。</h2>
+        </div>
+        <figure class="video-stage rehab-video-frame">
+          <video autoplay loop muted playsinline preload="auto" poster="images/case-rehab/hero-render.jpg" aria-label="上下肢主被动康复机器人高清循环展示动画">
+            <source src="videos/rehab-showcase.mp4" type="video/mp4">
+          </video>
+          <figcaption class="caption">这版视频用 Remotion 重新合成高清展示片，将原产品动态、细节渲染和完整 UI 组合成可循环播放的作品集视频。</figcaption>
+        </figure>
+      </div>
+    </section>
 
-    <div class="gallery-item">
-      <img src="images/上下肢主被动康复机器人-版面2.jpg" alt="康复机器人设计展板2">
-    </div>
-  </section>
+    <section class="case-section">
+      <div class="case-wrap split">
+        <div class="text-stack">
+          <h3>改造方向从“医疗器械感”转向“可亲近的康复陪伴”。</h3>
+          <p>这个项目的核心不是重新发明康复训练动作，而是让老设备在外观、交互和家庭使用氛围上变得更容易被接受。结合前期调研照片，可以把改造逻辑清楚地转化为 before / after 的设计判断。</p>
+          <ul class="feature-list">
+            <li>一体式机身弱化复杂机械外露，减少患者对设备的距离感</li>
+            <li>橙色功能区提示运动与调节部位，让操作重点更明确</li>
+            <li>屏幕界面把训练时长、心率、状态和医生反馈整合到同一入口</li>
+          </ul>
+        </div>
+        <figure class="image-stage light">
+          <img src="images/case-rehab/rehab-render-control-detail.jpg" alt="康复机器人控制按键、扶手和上肢训练结构细节展示" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </section>
 
-  <section class="project-details">
-    <div class="detail-section">
-      <h3>设计背景</h3>
-      <p>随着人口老龄化加剧，脑卒中患者数量持续增长，康复训练需求日益旺盛。传统康复训练依赖康复师人工辅助，效率低且难以标准化。本设计旨在通过智能化的康复机器人，提供更加精准、高效的康复训练方案。</p>
-    </div>
+    <section class="case-section alt">
+      <div class="case-wrap">
+        <div class="section-head">
+          <p class="section-label">Research Input</p>
+          <h2>原本产品调研揭示了改造机会：结构外露、视觉冷硬、收纳和交互都需要重新整理。</h2>
+        </div>
+        <div class="before-after-grid">
+          <figure class="before-card">
+            <img src="images/case-rehab/rehab-before-use.jpg" alt="原有上下肢康复设备使用场景调研照片" loading="lazy" decoding="async">
+            <figcaption>使用场景：患者需要在他人辅助下进入训练，设备形态偏器械化。</figcaption>
+          </figure>
+          <figure class="before-card">
+            <img src="images/case-rehab/rehab-before-device.jpg" alt="原有上下肢康复设备结构调研照片" loading="lazy" decoding="async">
+            <figcaption>结构观察：蓝白高对比外观、外露线缆和复杂部件让家庭语境显得突兀。</figcaption>
+          </figure>
+          <article class="after-card">
+            <span>Design response</span>
+            <h3>把“训练器械”转译成更稳定、更温和的家庭康复产品。</h3>
+            <p>新方案弱化裸露机械感，统一机身语言，用橙色提示关键操作区，并将训练反馈转移到屏幕与移动端界面中，让患者和康复师更容易理解状态。</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <div class="detail-section">
-      <h3>核心功能</h3>
-      <p><strong>主被动训练模式：</strong>根据患者康复阶段，可切换被动牵引和主动训练模式，循序渐进恢复运动能力。</p>
-      <p><strong>智能传感反馈：</strong>实时监测患者的力量输出、关节角度和训练进度，为康复师提供数据支持。</p>
-      <p><strong>人机工程优化：</strong>座椅、扶手、绑带系统均经过人机工程学优化，确保患者训练过程的舒适性和安全性。</p>
-    </div>
+    <section class="case-section rehab-band">
+      <div class="case-wrap">
+        <div class="section-head">
+          <p class="section-label">Training Flow</p>
+          <h2>训练流程被拆成可进入、可固定、可反馈、可调整的四个阶段。</h2>
+        </div>
+        <div class="decision-grid">
+          <article>
+            <span>01</span>
+            <h3>进入设备</h3>
+            <p>低阻碍的入座路径和扶手支撑，帮助患者在第一次使用时建立稳定感。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>身体固定</h3>
+            <p>脚部、手臂和躯干接触点围绕安全约束展开，减少训练中的误伤风险。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>模式训练</h3>
+            <p>主动与被动训练对应不同康复阶段，通过屏幕与按键完成更清晰的切换。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>数据反馈</h3>
+            <p>心率、强度和训练状态被持续记录，帮助康复师判断下一步训练计划。</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <div class="detail-section">
-      <h3>设计亮点</h3>
-      <p>产品采用模块化设计，可根据不同患者的身体条件进行调节。控制面板简洁直观，康复师可快速设置训练参数。整体造型采用医疗级白色配色，传递专业可靠的品牌形象。</p>
-    </div>
-  </section>
+    <section class="case-section">
+      <div class="case-wrap">
+        <div class="section-head">
+          <p class="section-label">Interface</p>
+          <h2>界面不只是装饰屏幕，而是把康复训练变成可理解的反馈系统。</h2>
+        </div>
+        <figure class="image-stage light ui-showcase-panel">
+          <img src="images/case-rehab/rehab-ui-complete.jpg" alt="上下肢康复机器人完整平板端和移动端界面设计展示" loading="lazy" decoding="async">
+          <figcaption class="caption">界面采用训练游戏、健康数据、医生监护与移动端目标反馈的组合，让患者、家属和康复师分别获得需要的信息。</figcaption>
+        </figure>
+      </div>
+    </section>
 
-  <footer>
-    <div class="footer-nav">
-      <a href="index.html">首页</a>
-      <a href="index.html#about">关于</a>
-      <a href="index.html#works">作品</a>
-      <a href="index.html#contact">联系</a>
+    <section class="case-section dark">
+      <div class="case-wrap split reverse">
+        <figure class="image-stage">
+          <img src="images/case-rehab/rehab-render-ui-detail.jpg" alt="上下肢康复机器人屏幕界面与扶手细节渲染图" loading="lazy" decoding="async">
+        </figure>
+        <div class="text-stack">
+          <h3>多视角展示用来说明结构，而不是重复摆放效果图。</h3>
+          <p>这里把展板中的多角度渲染重新切成网页视觉模块：一体式结构、按钮控制、家居化风格、娱乐性康复、前后滑轨和上半部旋转，都能直接服务于产品改造说明。</p>
+          <ul class="feature-list">
+            <li>前后滑轨支持不同身高与训练姿态</li>
+            <li>上半部可旋转，覆盖上肢训练的角度变化</li>
+            <li>家居化体块与白橙配色削弱传统器械的压迫感</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="case-wrap">
+        <div class="section-head">
+          <p class="section-label">Human Scale</p>
+          <h2>人机尺寸模块说明设备如何适配坐姿训练与移动收纳。</h2>
+        </div>
+        <figure class="image-stage light">
+          <img src="images/case-rehab/rehab-human-scale.jpg" alt="康复机器人坐姿训练和底部移动滑轮的人机尺寸展示" loading="lazy" decoding="async">
+          <figcaption class="caption">坐姿训练、扶手高度、腿部运动轨迹和底部移动滑轮，是这个产品从“能运转”走向“能被长期使用”的关键判断。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section alt">
+      <div class="case-wrap">
+        <div class="section-head">
+          <p class="section-label">Board Archive</p>
+          <h2>完整展板作为资料归档，而不是页面主体。</h2>
+        </div>
+        <div class="media-grid">
+          <figure class="image-stage light">
+            <img src="images/case-rehab/board-1-web.jpg" alt="康复机器人展板第一页" loading="lazy" decoding="async">
+          </figure>
+          <figure class="image-stage light">
+            <img src="images/case-rehab/board-2-web.jpg" alt="康复机器人展板第二页" loading="lazy" decoding="async">
+          </figure>
+        </div>
+        <p class="board-note">浏览者先看网页化拆解后的设计判断，再按需查看完整展板信息；这样既保留原始资料，又避免作品集页面变成比赛展板截图。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="case-footer">
+    <div class="footer-inner">
+      <a href="index.html#works">返回作品列表</a>
+      <a href="project-tide.html">下一项：潮汐卫士</a>
     </div>
-    <p class="copyright">&copy; 2026 孙琪 &mdash; 保留所有权利</p>
   </footer>
-
 </body>
 </html>

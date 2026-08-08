@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reBot Case Direction</title>
+  <style>
+    :root { --ink:#17293b; --muted:#587083; --paper:#f7fbfd; --line:#cfe1eb; --blue:#78bee5; --lime:#b9df45; --red:#d95059; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(135deg,#f9fcff,#edf7fb); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",sans-serif; }
+    main { max-width:1440px; margin:0 auto; padding:58px clamp(22px,5vw,72px) 76px; }
+    .eyebrow { color:#4e778f; font-size:13px; font-weight:700; }
+    h1 { max-width:850px; margin:13px 0; font-size:clamp(30px,4.2vw,58px); line-height:1.1; letter-spacing:0; }
+    .lead { max-width:760px; margin:0 0 42px; color:var(--muted); font-size:17px; line-height:1.8; }
+    .directions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .direction { overflow:hidden; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 18px 38px rgba(68,117,145,.10); }
+    .visual { position:relative; min-height:310px; padding:22px; overflow:hidden; }
+    .a { background:linear-gradient(145deg,#effaff,#dceff8); }
+    .b { background:linear-gradient(145deg,#f7f8f3,#e6f0dc); }
+    .c { background:linear-gradient(145deg,#fff9f7,#f5e9e4); }
+    .tag { position:relative; z-index:2; display:inline-block; padding:6px 9px; border:1px solid rgba(23,41,59,.14); border-radius:999px; background:rgba(255,255,255,.76); color:#406072; font-size:12px; font-weight:700; }
+    .flow { position:absolute; inset:83px 20px 26px; display:grid; grid-template-columns:1fr 38px 1fr 38px 1fr; align-items:center; }
+    .node { min-height:118px; padding:14px; border:1px solid rgba(54,113,145,.22); border-radius:7px; background:rgba(255,255,255,.82); box-shadow:0 8px 18px rgba(36,92,122,.09); }
+    .node small { display:block; color:#638095; font-size:11px; font-weight:700; }
+    .node strong { display:block; margin-top:10px; font-size:16px; line-height:1.25; }
+    .node i { display:block; width:24px; height:1px; margin:auto; background:#72aecd; position:relative; }
+    .node i::after { content:""; position:absolute; right:0; top:-3px; width:7px; height:7px; border-top:1px solid #72aecd; border-right:1px solid #72aecd; transform:rotate(45deg); }
+    .a .node:first-child { border-color:rgba(217,80,89,.35); } .a .node:first-child strong { color:#b43843; }
+    .a .node:last-child { border-color:rgba(142,190,64,.48); } .a .node:last-child strong { color:#4d781f; }
+    .comparison { position:absolute; inset:89px 22px 24px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .lane { display:flex; flex-direction:column; gap:9px; padding:14px; border:1px solid rgba(56,88,65,.16); border-radius:7px; background:rgba(255,255,255,.7); }
+    .lane b { font-size:14px; } .lane span { height:27px; border-radius:4px; background:#d8e1df; } .lane span:nth-child(3) { width:72%; } .lane span:nth-child(4) { width:46%; }
+    .lane.new span { background:linear-gradient(90deg,#a9daf0,#c6e879); } .lane.new span:nth-child(3) { width:88%; } .lane.new span:nth-child(4) { width:92%; }
+    .evidence { position:absolute; inset:91px 23px 24px; display:grid; grid-template-columns:1.2fr .8fr; gap:12px; }
+    .photo-stack { position:relative; min-height:190px; }
+    .photo { position:absolute; width:63%; height:130px; border:5px solid #fff; border-radius:4px; background:linear-gradient(140deg,#a3cbd9,#f3d8bd); box-shadow:0 12px 20px rgba(74,56,49,.18); }
+    .photo:nth-child(1) { left:0; top:10px; transform:rotate(-5deg); } .photo:nth-child(2) { right:0; top:27px; background:linear-gradient(140deg,#d2d6c0,#7eacd1); transform:rotate(5deg); } .photo:nth-child(3) { left:19%; top:68px; background:linear-gradient(140deg,#c2d5e8,#d7e59a); transform:rotate(-1deg); }
+    .proof { display:grid; gap:8px; align-content:center; } .proof div { padding:11px; border-left:3px solid var(--red); background:rgba(255,255,255,.78); color:#4c5863; font-size:12px; line-height:1.4; } .proof div:nth-child(2) { border-left-color:#78bee5; } .proof div:nth-child(3) { border-left-color:#a9c94b; }
+    .copy { padding:22px 22px 25px; } .copy h2 { margin:0; font-size:21px; } .copy p { min-height:58px; margin:11px 0 18px; color:var(--muted); font-size:14px; line-height:1.7; } .copy b { color:#345b72; font-size:13px; }
+    .recommended { display:inline-block; margin-left:8px; padding:4px 7px; border-radius:999px; color:#455e18; background:#e7f3bc; font-size:11px; vertical-align:3px; }
+    .note { margin-top:34px; padding:17px 20px; border-left:3px solid var(--red); background:rgba(255,255,255,.72); color:#40596c; line-height:1.75; }
+    @media (max-width:950px){ .directions{grid-template-columns:1fr;} .visual{min-height:270px;} }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">reBot / CASE STORY DIRECTION</div>
+    <h1>让评审先看见设计判断，再看见系统如何被真实验证。</h1>
+    <p class="lead">三种方向都保留真实的系统、实验照片与视频，但叙事重心不同。请从画面与结构上选择最接近你希望作品集呈现效果的一种。</p>
+    <section class="directions">
+      <article class="direction">
+        <div class="visual a"><span class="tag">A / 推荐</span><div class="flow"><div class="node"><small>传统学习</small><strong>静态图纸<br>被动记忆</strong></div><i></i><div class="node"><small>设计策略</small><strong>身体参与<br>实时反馈</strong></div><i></i><div class="node"><small>学习结果</small><strong>理解结构<br>完成任务</strong></div></div></div>
+        <div class="copy"><h2>从断点到具身学习闭环 <span class="recommended">推荐</span></h2><p>用一条强视觉逻辑线讲清“为什么要重新设计学习方式”，再将系统、实验现场和交互成果作为闭环证据。</p><b>最适合设计岗位评审，同时保留研究逻辑。</b></div>
+      </article>
+      <article class="direction">
+        <div class="visual b"><span class="tag">B</span><div class="comparison"><div class="lane"><b>传统学习</b><span></span><span></span><span></span><small>图纸 / 鼠标 / 对错</small></div><div class="lane new"><b>reBot 学习</b><span></span><span></span><span></span><small>手势 / 3D / 语义反馈</small></div></div></div>
+        <div class="copy"><h2>传统方式 vs. reBot</h2><p>以左右对照的方式将学习输入、反馈方式、理解对象与可沉淀数据逐项可视化，论证改造价值。</p><b>更直接，适合强化研究对照与系统优势。</b></div>
+      </article>
+      <article class="direction">
+        <div class="visual c"><span class="tag">C</span><div class="evidence"><div class="photo-stack"><i class="photo"></i><i class="photo"></i><i class="photo"></i></div><div class="proof"><div>现场受试者</div><div>手势识别输入</div><div>任务与反馈记录</div></div></div></div>
+        <div class="copy"><h2>从现场证据到设计结论</h2><p>以实验照片短片作为开场，跟随真实体验过程抽取问题、设计决策与系统证据，叙事更具纪录感。</p><b>真实性最强，但设计创新点需要后续图解补足。</b></div>
+      </article>
+    </section>
+    <p class="note">我的建议是选择 A 作为主叙事，并吸收 B 的关键对照图和 C 的现场照片短片。这样案例既不会像论文，也不会变成仅展示 UI 的项目页。</p>
+  </main>
+</body>
+</html>
