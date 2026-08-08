@@ -1,0 +1,45 @@
+name: Deploy portfolio to Tencent COS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/**"
+      - ".github/workflows/deploy-cos.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout portfolio
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install COS command line client
+        run: python -m pip install --upgrade coscmd
+
+      - name: Configure Tencent COS
+        env:
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+          COS_BUCKET: ${{ vars.COS_BUCKET }}
+          COS_REGION: ${{ vars.COS_REGION }}
+        run: |
+          coscmd config \
+            -a "$TENCENT_SECRET_ID" \
+            -s "$TENCENT_SECRET_KEY" \
+            -b "$COS_BUCKET" \
+            -r "$COS_REGION"
+
+      - name: Upload portfolio files
+        run: coscmd upload -r ./docs/ /
+
