@@ -9,6 +9,10 @@ on:
       - ".github/workflows/deploy-cos.yml"
   workflow_dispatch:
 
+concurrency:
+  group: tencent-cos-deploy
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
@@ -40,6 +44,39 @@ jobs:
             -b "$COS_BUCKET" \
             -r "$COS_REGION"
 
-      - name: Upload portfolio files
-        run: coscmd upload -r ./docs/ /
+      - name: Collect changed portfolio files
+        id: changes
+        run: |
+          file_list="$RUNNER_TEMP/portfolio-files.txt"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            find docs -type f | sort > "$file_list"
+          else
+            git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- docs |
+              while IFS= read -r file; do
+                [ -f "$file" ] && printf '%s\n' "$file"
+              done > "$file_list"
+          fi
+          echo "$(wc -l < "$file_list") changed portfolio files ready for upload."
 
+      - name: Upload changed portfolio files with retries
+        run: |
+          file_list="$RUNNER_TEMP/portfolio-files.txt"
+          failed=0
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            remote_path="/${file#docs/}"
+            uploaded=false
+            for attempt in 1 2 3 4; do
+              if coscmd upload "$file" "$remote_path"; then
+                uploaded=true
+                break
+              fi
+              echo "Retry $attempt/4 for $file"
+              sleep $((attempt * 15))
+            done
+            if [ "$uploaded" != true ]; then
+              echo "Failed to upload $file after four attempts."
+              failed=1
+            fi
+          done < "$file_list"
+          exit "$failed"

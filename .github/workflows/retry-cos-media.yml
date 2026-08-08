@@ -1,0 +1,81 @@
+name: Retry failed Tencent COS media uploads
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/retry-cos-media.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: tencent-cos-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  retry-media:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout portfolio
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install COS command line client
+        run: python -m pip install --upgrade coscmd
+
+      - name: Configure Tencent COS
+        env:
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
+          COS_BUCKET: ${{ vars.COS_BUCKET }}
+          COS_REGION: ${{ vars.COS_REGION }}
+        run: |
+          coscmd config \
+            -a "$TENCENT_SECRET_ID" \
+            -s "$TENCENT_SECRET_KEY" \
+            -b "$COS_BUCKET" \
+            -r "$COS_REGION"
+
+      - name: Retry the 14 failed large assets
+        run: |
+          files=(
+            "docs/images/case-rebot/rebot_b601_dm_from_step.glb"
+            "docs/images/case-rebot/rebot-embodied-operation.mp4"
+            "docs/images/case-rebot/rebot-hero-embodied-interaction.png"
+            "docs/images/case-rebot/rebot-hero-virtual-learning.png"
+            "docs/images/case-rebot/video-exports/rebot-physical-arm-operation.mp4"
+            "docs/images/个人照片.png"
+            "docs/images/睿护-未来医疗机器人.jpg"
+            "docs/images/上下肢主被动康复机器人-版面1.jpg"
+            "docs/images/上下肢主被动康复机器人-版面2.jpg"
+            "docs/images/上下肢主被动康复机器人-效果图.png"
+            "docs/images/小布智能家庭机器人.png"
+            "docs/images/小布智能家庭机器人-效果图1.png"
+            "docs/images/小布智能家庭机器人-效果图3.png"
+            "docs/videos/rehab-showcase.mp4"
+          )
+          failed=0
+          for file in "${files[@]}"; do
+            remote_path="/${file#docs/}"
+            uploaded=false
+            for attempt in 1 2 3 4 5; do
+              if coscmd upload "$file" "$remote_path"; then
+                uploaded=true
+                break
+              fi
+              echo "Retry $attempt/5 for $file"
+              sleep $((attempt * 20))
+            done
+            if [ "$uploaded" != true ]; then
+              echo "Failed to upload $file after five attempts."
+              failed=1
+            fi
+          done
+          exit "$failed"
