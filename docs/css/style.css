@@ -1,16 +1,25 @@
 /* ========== Base Styles ========== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --type-display: clamp(2.75rem, 6vw, 4.5rem);
+  --type-section: clamp(1.9rem, 3.2vw, 3rem);
+  --type-body: 1rem;
+  --type-meta: 0.8125rem;
+  --leading-body: 1.75;
+  --leading-meta: 1.5;
+}
 html {
   scroll-behavior: smooth;
   /* Performance optimization */
   scroll-padding-top: 80px;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-family: var(--font-sans);
   background: #ffffff;
   color: #1d1d1f;
   overflow-x: hidden;
-  line-height: 1.47;
+  line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Performance optimization */
@@ -286,7 +295,7 @@ nav.menu-open .nav-toggle span {
   transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center;
   gap: 0.75rem; color: rgba(255,255,255,0.6);
-  font-size: 0.6875rem; letter-spacing: 0.08em;
+  font-size: 0.75rem; letter-spacing: 0.04em;
   animation: bounce 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 .scroll-indicator .line {
@@ -304,7 +313,7 @@ nav.menu-open .nav-toggle span {
   max-width: 980px; margin: 0 auto;
 }
 .section-tag {
-  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
   color: #86868b; margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
@@ -431,7 +440,7 @@ nav.menu-open .nav-toggle span {
   gap: 2rem;
 }
 .skill-group h4 {
-  font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
   color: #86868b; margin-bottom: 1rem;
   text-transform: uppercase;
 }
@@ -573,14 +582,14 @@ nav.menu-open .nav-toggle span {
   border: 0.5px solid rgba(255,255,255,0.2);
 }
 .impact-tag i {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   opacity: 0.8;
 }
 
 /* Card thumbnail label */
 .card-thumb-label {
   position: absolute; top: 1rem; right: 1rem; z-index: 1;
-  font-size: 0.625rem; font-weight: 600; letter-spacing: 0.06em;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
   color: rgba(255,255,255,0.92);
   background: rgba(0,0,0,0.36);
   padding: 0.375rem 0.875rem;
@@ -593,9 +602,12 @@ nav.menu-open .nav-toggle span {
 }
 .project-card:hover .card-thumb-label { opacity: 1; }
 
-/* Works Grid Layout */
-.works-grid .project-card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.works-grid .project-card:nth-child(4) { grid-column: span 2; }
+/* Works Grid Layout: flagship work hierarchy is tied to each project, not source order. */
+.works-grid .project-card:nth-child(1) { order: 1; grid-column: span 2; grid-row: span 2; }
+.works-grid .project-card-rehab { order: 5; grid-column: span 2; grid-row: auto; }
+.works-grid .project-card:nth-child(3) { order: 3; }
+.works-grid .project-card-rebot { order: 4; }
+.works-grid .project-card.project-card-baby { order: 2; grid-column: auto; grid-row: auto; }
 
 /* Second row */
 .works-grid-2 {
@@ -614,6 +626,47 @@ nav.menu-open .nav-toggle span {
   pointer-events: none;
 }
 .project-card:hover .card-click-hint { opacity: 1; }
+
+/* reBot is image-led: a restrained lower fade protects the type without obscuring the interaction scene. */
+.project-card-rebot .card-img {
+  object-position: center;
+  filter: saturate(0.94) contrast(1.02);
+}
+.project-card-rebot .card-overlay {
+  background: linear-gradient(to top, rgba(8, 29, 43, 0.72) 0%, rgba(8, 29, 43, 0.34) 28%, rgba(8, 29, 43, 0.06) 58%, transparent 76%);
+  opacity: 0.68;
+}
+.project-card-rebot:hover .card-overlay {
+  opacity: 0.76;
+}
+.project-card-rebot .card-info {
+  left: 1rem;
+  right: 1.25rem;
+  bottom: 1rem;
+  padding: 0;
+  max-width: 79%;
+}
+.project-card-rebot .card-category {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  padding: 0.28rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(8, 29, 43, 0.56);
+  color: #d7f0f6;
+  letter-spacing: 0.06em;
+}
+.project-card-rebot .card-title {
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0, 19, 30, 0.56);
+}
+.project-card-rebot .card-en { color: rgba(245, 252, 255, 0.84); text-shadow: 0 1px 2px rgba(0, 19, 30, 0.5); }
+.project-card-rebot .impact-tag { background: rgba(8, 35, 51, 0.52); border-color: rgba(213, 241, 247, 0.42); }
+
+@media (max-width: 640px) {
+  .project-card-rebot .card-info { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; max-width: 86%; }
+  .project-card-rebot .card-title { font-size: 1.3rem; }
+}
 
 /* ========== Modal ========== */
 .modal {
@@ -683,7 +736,7 @@ nav.menu-open .nav-toggle span {
 }
 .modal-en {
   font-size: 0.85rem; font-weight: 300; color: #6e6e73;
-  font-family: 'Inter', sans-serif; margin-bottom: 1rem;
+  font-family: var(--font-sans); margin-bottom: 1rem;
 }
 .modal-desc {
   font-size: 0.85rem; line-height: 1.8; color: #3a3a3c; font-weight: 300;
@@ -916,7 +969,7 @@ footer {
   .skills-container { grid-template-columns: repeat(3, 1fr); }
   .works-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
   .works-grid .project-card:nth-child(1) { grid-column: span 2; grid-row: span 1; }
-  .works-grid .project-card:nth-child(4) { grid-column: span 2; }
+  .works-grid .project-card-rehab { grid-column: span 2; }
   .works-grid-2 { grid-template-columns: 1fr 1fr; }
   .works-grid-2 .project-card:last-child { grid-column: span 2; }
 
@@ -947,7 +1000,7 @@ footer {
   .btn-primary, .btn-secondary { justify-content: center; min-height: 44px; }
   .works-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
   .works-grid .project-card:nth-child(1) { grid-column: span 1; grid-row: span 1; }
-  .works-grid .project-card:nth-child(4) { grid-column: span 1; }
+  .works-grid .project-card-rehab { grid-column: span 1; }
   .works-grid-2 { grid-template-columns: 1fr; }
   .works-grid-2 .project-card:last-child { grid-column: span 1; }
   .skills-container { grid-template-columns: repeat(2, 1fr); }
@@ -961,4 +1014,52 @@ footer {
     height: 40px;
     font-size: 1rem;
   }
+}
+
+/* Portfolio typography system: one clear sans voice for UI and reading. */
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
+}
+
+.hero-name,
+.section-title,
+.project-card .card-title,
+.modal-title {
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.hero-name { font-size: 4.5rem; line-height: 1.12; }
+
+.hero-sub,
+.about-text p,
+.modal-desc {
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+.nav-links a,
+.hero-badge,
+.hero-proof span,
+.project-card .card-category,
+.project-card .card-en,
+.modal-en,
+.skills-label,
+.about-item .label {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta);
+  line-height: var(--leading-meta);
+  letter-spacing: 0;
+}
+
+@media (max-width: 600px) {
+  .hero-name { font-size: 3.25rem; }
+  .hero-sub,
+  .about-text p,
+  .modal-desc { font-size: 1rem; }
 }
