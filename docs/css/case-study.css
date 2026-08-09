@@ -2344,13 +2344,15 @@ a { color: inherit; text-decoration: none; }
   background: #dce4da;
 }
 
-.built-arrival .built-gallery figure:nth-child(1) { grid-column: 1 / span 4; margin-top: clamp(2rem, 6vw, 5rem); }
-.built-arrival .built-gallery figure:nth-child(2) { grid-column: 5 / span 3; }
-.built-arrival .built-gallery figure:nth-child(3) { grid-column: 8 / span 5; margin-top: clamp(0.8rem, 2.5vw, 2rem); }
+.built-arrival .built-gallery figure:nth-child(1) { grid-column: 1 / span 3; margin-top: clamp(2rem, 6vw, 5rem); }
+.built-arrival .built-gallery figure:nth-child(2) { grid-column: 4 / span 3; }
+.built-arrival .built-gallery figure:nth-child(3) { grid-column: 7 / span 3; margin-top: clamp(0.8rem, 2.5vw, 2rem); }
+.built-arrival .built-gallery figure:nth-child(4) { grid-column: 10 / span 3; margin-top: clamp(3rem, 7vw, 6.5rem); }
 .built-detail .built-gallery { grid-template-columns: repeat(12, minmax(0, 1fr)); padding-bottom: 0; }
-.built-detail .built-gallery figure:nth-child(1) { grid-column: 1 / span 4; margin-top: clamp(1.2rem, 3.4vw, 3rem); }
-.built-detail .built-gallery figure:nth-child(2) { grid-column: 5 / span 4; }
-.built-detail .built-gallery figure:nth-child(3) { grid-column: 9 / span 4; margin-top: clamp(2.3rem, 5vw, 4.5rem); }
+.built-detail .built-gallery figure:nth-child(1) { grid-column: 1 / span 3; margin-top: clamp(1.2rem, 3.4vw, 3rem); }
+.built-detail .built-gallery figure:nth-child(2) { grid-column: 4 / span 3; }
+.built-detail .built-gallery figure:nth-child(3) { grid-column: 7 / span 3; margin-top: clamp(2.3rem, 5vw, 4.5rem); }
+.built-detail .built-gallery figure:nth-child(4) { grid-column: 10 / span 3; margin-top: clamp(.5rem, 2vw, 1.5rem); }
 
 .built-gallery figcaption {
   max-width: 24ch;
@@ -2378,9 +2380,11 @@ a { color: inherit; text-decoration: none; }
 .built-arrival .built-gallery figure:nth-child(1) figcaption::before { content: "01 / ARRIVAL"; }
 .built-arrival .built-gallery figure:nth-child(2) figcaption::before { content: "02 / ASCENT"; }
 .built-arrival .built-gallery figure:nth-child(3) figcaption::before { content: "03 / THRESHOLD"; }
+.built-arrival .built-gallery figure:nth-child(4) figcaption::before { content: "04 / CANOPY DINING"; }
 .built-detail .built-gallery figure:nth-child(1) figcaption::before { content: "04 / PATH"; }
 .built-detail .built-gallery figure:nth-child(2) figcaption::before { content: "05 / MATERIAL"; }
 .built-detail .built-gallery figure:nth-child(3) figcaption::before { content: "06 / DWELLING"; }
+.built-detail .built-gallery figure:nth-child(4) figcaption::before { content: "07 / WATER GARDEN"; }
 
 .built-arrival .built-gallery figure:nth-child(1) figcaption { max-width: 27ch; }
 .landscape-closing { max-width: 56ch; margin: clamp(2.2rem,5vw,4rem) 0 0 auto; padding-top: 1.2rem; border-top: 1px solid #cbd7cb; color: var(--land-moss); font-size: clamp(1rem,1.5vw,1.2rem); line-height: 1.7; }
@@ -2403,12 +2407,8 @@ a { color: inherit; text-decoration: none; }
     row-gap: clamp(1.4rem, 3vw, 2.2rem);
   }
   .built-gallery figure:nth-child(n) { margin-top: 0; }
-  .built-arrival .built-gallery figure:nth-child(1) { grid-column: 1 / span 3; }
-  .built-arrival .built-gallery figure:nth-child(2) { grid-column: 4 / span 3; }
-  .built-arrival .built-gallery figure:nth-child(3) { grid-column: 2 / span 4; }
-  .built-detail .built-gallery figure:nth-child(1) { grid-column: 1 / span 3; }
-  .built-detail .built-gallery figure:nth-child(2) { grid-column: 4 / span 3; }
-  .built-detail .built-gallery figure:nth-child(3) { grid-column: 2 / span 4; }
+  .built-arrival .built-gallery figure:nth-child(1), .built-arrival .built-gallery figure:nth-child(3), .built-detail .built-gallery figure:nth-child(1), .built-detail .built-gallery figure:nth-child(3) { grid-column: 1 / span 3; }
+  .built-arrival .built-gallery figure:nth-child(2), .built-arrival .built-gallery figure:nth-child(4), .built-detail .built-gallery figure:nth-child(2), .built-detail .built-gallery figure:nth-child(4) { grid-column: 4 / span 3; }
 }
 @media (max-width: 560px) {
   .landscape-hero-media { min-height: 390px; }
