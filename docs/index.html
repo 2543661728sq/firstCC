@@ -16,16 +16,11 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <!-- Preload critical resources -->
-  <link rel="preload" href="css/style.css?v=20260628-1" as="style">
-  <link rel="preload" href="js/main.js" as="script">
-  <link rel="preload" href="images/profile-avatar.jpg" as="image">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" as="style">
-
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="css/style.css?v=20260628-1">
+  <link rel="stylesheet" href="css/style.css?v=20260831-performance1">
 
 </head>
 <body>
@@ -52,9 +47,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <video class="hero-video-bg" autoplay loop muted playsinline preload="metadata" width="1920" height="1080" poster="images/封面背景.jpg">
-      <source src="images/动态背景图.mp4" type="video/mp4">
-    </video>
+    <img class="hero-cover-image" src="images/封面背景.jpg" alt="孙琪个人设计作品集封面" width="1920" height="1920" fetchpriority="high" decoding="async">
     <div class="hero-overlay"></div>
     <div class="hero-watermark-cover"></div>
     <div class="hero-content">
@@ -386,8 +379,6 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
