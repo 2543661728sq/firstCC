@@ -22,6 +22,9 @@ jobs:
     steps:
       - name: Checkout portfolio
         uses: actions/checkout@v4
+        with:
+          # Keep the previous commit available so incremental COS uploads can be detected.
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
