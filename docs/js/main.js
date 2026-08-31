@@ -37,15 +37,6 @@ const projects = {
     thumbnail: 'images/初履幼儿学步手推车-效果图.png',
     img: 'images/初履幼儿学步手推车设计.png'
   },
-  ruihu: {
-    category: '概念设计',
-    title: '睿护 · 未来医疗机器人',
-    en: 'RuiHu · Future Medical Robot',
-    desc: '面向未来智慧医院场景的医疗机器人概念设计，融合AI辅助诊断、手术支持与病房巡检等功能。极富未来感的造型语言与柔和的灯光系统，传递出科技医疗的人文关怀。',
-    tags: ['概念设计', '医疗机器人', '未来感', 'AI'],
-    thumbnail: 'images/睿护-未来医疗机器人.jpg',
-    img: 'images/睿护-未来医疗机器人.jpg'
-  },
   garden: {
     category: '景观设计',
     title: '花园景观设计',
