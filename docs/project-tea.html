@@ -23,8 +23,8 @@
     .tea-hero .case-summary { color:#d2d8cd; }
     .tea-meta { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.5rem; }
     .tea-meta span { padding:.38rem .7rem; border:1px solid rgba(216,183,104,.42); border-radius:999px; color:#ead69f; font-size:.78rem; }
-    .tea-hero-media { background:#101511; border:1px solid var(--tea-line); box-shadow:0 25px 70px rgba(0,0,0,.3); }
-    .tea-hero-media img { object-fit:cover; min-height:360px; }
+    .tea-hero-media { background:#101511; border:1px solid var(--tea-line); box-shadow:0 25px 70px rgba(0,0,0,.3); aspect-ratio:2400 / 1147; min-height:0; }
+    .tea-hero-media img { width:100%; height:auto; min-height:0; aspect-ratio:2400 / 1147; object-fit:contain; }
     .tea-live-link { display:inline-flex; align-items:center; gap:.55rem; min-height:44px; margin-top:2rem; padding:.68rem 1rem; border-radius:999px; background:var(--tea-green); color:#0d2415; font-weight:700; }
     .tea-live-link:hover { background:#b5ebc1; }
     .tea-section { padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4vw,4rem); border-top:1px solid var(--tea-line); }
