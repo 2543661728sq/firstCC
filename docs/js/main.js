@@ -79,6 +79,21 @@ window.addEventListener('load', () => {
       }, 600);
     });
   }
+
+  // Keep the original moving cover without blocking the first paint.
+  const heroVideo = document.querySelector('.hero-video-bg');
+  if (heroVideo?.dataset.videoSrc) {
+    const startVideo = () => {
+      const source = document.createElement('source');
+      source.src = heroVideo.dataset.videoSrc;
+      source.type = 'video/mp4';
+      heroVideo.appendChild(source);
+      heroVideo.load();
+      heroVideo.play().catch(() => {});
+    };
+    if ('requestIdleCallback' in window) requestIdleCallback(startVideo, { timeout: 1800 });
+    else window.setTimeout(startVideo, 700);
+  }
 });
 
 const nav = document.getElementById('nav');

@@ -161,12 +161,13 @@ nav.menu-open .nav-toggle span {
   overflow: hidden;
   background: #000000;
 }
-.hero-cover-image {
+.hero-video-bg {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 1;
+  opacity: 0.6;
+  transform: translateZ(0);
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -869,7 +870,7 @@ footer {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .hero-cover-image { transform: none !important; }
+  .hero-video-bg { transform: none !important; }
 }
 
 /* ========== Scroll Animations (Emil Kowalski Style) ========== */
