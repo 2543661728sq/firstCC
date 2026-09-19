@@ -8,6 +8,12 @@ on:
       - "docs/**"
       - ".github/workflows/deploy-cos.yml"
   workflow_dispatch:
+    inputs:
+      sync_pdf:
+        description: "Upload the current portfolio PDF to the fixed COS QR path"
+        required: false
+        type: boolean
+        default: false
 
 concurrency:
   group: tencent-cos-deploy
@@ -51,7 +57,9 @@ jobs:
         id: changes
         run: |
           file_list="$RUNNER_TEMP/portfolio-files.txt"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+          if [ "${{ inputs.sync_pdf }}" = "true" ]; then
+            printf '%s\n' "docs/孙琪｜个人设计作品集.pdf" > "$file_list"
+          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             find docs -type f | sort > "$file_list"
           else
             git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- docs > "$file_list"
