@@ -75,13 +75,14 @@ jobs:
           COS_REGION: ${{ vars.COS_REGION }}
         run: |
           file_list="$RUNNER_TEMP/portfolio-files.txt"
+          aws configure set default.s3.addressing_style virtual
+          aws configure set default.s3.multipart_threshold 8MB
+          aws configure set default.s3.multipart_chunksize 8MB
           while IFS= read -r file; do
             [ -z "$file" ] && continue
             key="${file#docs/}"
             echo "Uploading $file -> cos://$COS_BUCKET/$key"
-            timeout 600s aws s3api put-object \
-              --bucket "$COS_BUCKET" --key "$key" --body "$file" \
-              --content-type "application/pdf" \
+            timeout 600s aws s3 cp "$file" "s3://$COS_BUCKET/$key" \
               --endpoint-url "https://$COS_BUCKET.cos.$COS_REGION.myqcloud.com" \
-              --region "$COS_REGION" --no-cli-pager
+              --region "$COS_REGION" --no-progress --only-show-errors
           done < "$file_list"
