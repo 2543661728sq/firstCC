@@ -76,7 +76,7 @@ jobs:
             remote_path="/${file#docs/}"
             uploaded=false
             for attempt in 1 2 3 4; do
-              if coscmd upload "$file" "$remote_path"; then
+              if coscmd upload -y "$file" "$remote_path"; then
                 uploaded=true
                 break
               fi
