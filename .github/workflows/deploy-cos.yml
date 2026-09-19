@@ -54,10 +54,8 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
             find docs -type f | sort > "$file_list"
           else
-            git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- docs |
-              while IFS= read -r file; do
-                [ -f "$file" ] && printf '%s\n' "$file"
-              done > "$file_list"
+            git diff --name-only --diff-filter=AM "${{ github.event.before }}" "${{ github.sha }}" -- docs > "$file_list"
+            sed -i '/^$/d' "$file_list"
           fi
           echo "$(wc -l < "$file_list") changed portfolio files ready for upload."
 
