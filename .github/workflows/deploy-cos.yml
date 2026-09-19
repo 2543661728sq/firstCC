@@ -79,7 +79,9 @@ jobs:
             [ -z "$file" ] && continue
             key="${file#docs/}"
             echo "Uploading $file -> cos://$COS_BUCKET/$key"
-            timeout 600s aws s3 cp "$file" "s3://$COS_BUCKET/$key" \
-              --endpoint-url "https://cos.$COS_REGION.myqcloud.com" \
-              --region "$COS_REGION" --no-progress --only-show-errors
+            timeout 600s aws s3api put-object \
+              --bucket "$COS_BUCKET" --key "$key" --body "$file" \
+              --content-type "application/pdf" \
+              --endpoint-url "https://$COS_BUCKET.cos.$COS_REGION.myqcloud.com" \
+              --region "$COS_REGION" --no-cli-pager
           done < "$file_list"
