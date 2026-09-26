@@ -48,7 +48,7 @@
         </div>
 
         <figure class="rebot-hero-shot">
-          <img src="images/case-rebot/rebot-hero-virtual-learning.png" alt="体验者通过手势在屏幕中的虚拟 reBot DevArm 场景完成具身认知学习" loading="eager" fetchpriority="high">
+          <img src="images/case-rebot/rebot-hero-virtual-learning-fast.webp" alt="体验者通过手势在屏幕中的虚拟 reBot DevArm 场景完成具身认知学习" loading="eager" fetchpriority="high" width="1400" height="1045">
           <figcaption>
               <strong>虚拟具身认知学习</strong>
               <span>手势输入 / 虚拟空间 / 任务理解</span>
@@ -66,7 +66,7 @@
         </div>
         <div class="rebot-research-evidence">
           <figure class="rebot-research-film">
-            <video src="images/case-rebot/video-exports/rebot-field-study.mp4" autoplay loop muted playsinline preload="metadata" poster="images/case-rebot/video-exports/rebot-field-study-poster.jpg" aria-label="reBot 真实实验现场照片动画"></video>
+            <video data-video-src="images/case-rebot/video-exports/rebot-field-study.mp4" autoplay loop muted playsinline preload="none" poster="images/case-rebot/video-exports/rebot-field-study-poster.jpg" aria-label="reBot 真实实验现场照片动画"></video>
             <figcaption><strong>现场证据</strong><span>观察参与者如何在屏幕、手势与机械臂任务之间切换。</span></figcaption>
           </figure>
           <div class="rebot-research-diagram" aria-label="从研究观察到设计回应的三层转化图">
@@ -109,7 +109,7 @@
         </div>
         <div class="rebot-proof-canvas">
           <figure class="rebot-proof-film rebot-proof-film-system">
-            <video src="images/case-rebot/video-exports/rebot-embodied-learning-portfolio-loop.mp4" autoplay loop muted playsinline preload="metadata" poster="images/case-rebot/video-exports/rebot-embodied-learning-portfolio-loop-poster.jpg" aria-label="具身交互学习系统演示"></video>
+            <video data-video-src="images/case-rebot/video-exports/rebot-embodied-learning-portfolio-loop.mp4" autoplay loop muted playsinline preload="none" poster="images/case-rebot/video-exports/rebot-embodied-learning-portfolio-loop-poster.jpg" aria-label="具身交互学习系统演示"></video>
             <figcaption><span>虚拟学习场景</span><strong>手势、3D 结构与任务反馈同时可见</strong></figcaption>
           </figure>
           <div class="rebot-learning-map" aria-label="具身认知学习的系统关系图">
@@ -122,7 +122,7 @@
             <article><i class="fa-solid fa-lightbulb" aria-hidden="true"></i><span>任务反馈</span><strong>把结果变成下一步理解</strong></article>
           </div>
           <figure class="rebot-proof-film rebot-proof-film-physical">
-            <video src="images/case-rebot/video-exports/rebot-physical-arm-portfolio-loop.mp4" autoplay loop muted playsinline preload="metadata" poster="images/case-rebot/video-exports/rebot-physical-arm-portfolio-loop-poster.jpg" aria-label="reBot 实体机械臂演示"></video>
+            <video data-video-src="images/case-rebot/video-exports/rebot-physical-arm-portfolio-loop.mp4" autoplay loop muted playsinline preload="none" poster="images/case-rebot/video-exports/rebot-physical-arm-portfolio-loop-poster.jpg" aria-label="reBot 实体机械臂演示"></video>
             <figcaption><span>真实硬件参照</span><strong>实体机械臂作为学习对象，而非手势遥控对象</strong></figcaption>
           </figure>
         </div>
@@ -137,7 +137,7 @@
           <p>它的价值不在于堆砌功能，而在于让交互设计参与到智能硬件的认知与研究过程。</p>
         </div>
         <div class="rebot-outcome-evidence">
-          <figure><img src="images/case-rebot/rebot-hero-embodied-interaction.png" alt="reBot DevArm 与手势关键点构成的具身交互主视觉"><figcaption>虚拟具身交互的核心关系：身体动作、机械结构与空间反馈被组织为同一场学习体验。</figcaption></figure>
+          <figure><img src="images/case-rebot/rebot-hero-embodied-interaction-fast.webp" alt="reBot DevArm 与手势关键点构成的具身交互主视觉" loading="lazy" decoding="async" width="1400" height="1045"><figcaption>虚拟具身交互的核心关系：身体动作、机械结构与空间反馈被组织为同一场学习体验。</figcaption></figure>
           <div class="rebot-outcome-notes">
             <article><span>01</span><div><h3>设计对象</h3><p>把机械臂从一件硬件产品，转化为可被感知和理解的虚拟学习对象。</p></div></article>
             <article><span>02</span><div><h3>设计介入</h3><p>用身体动作连接视觉识别与三维空间，让理解有具体的输入与反馈。</p></div></article>
@@ -158,5 +158,6 @@
   <script src="js/three.min.js"></script>
   <script src="js/GLTFLoader.js"></script>
   <script src="js/rebot-viewer.js"></script>
+  <script src="js/lazy-media.js" defer></script>
 </body>
 </html>

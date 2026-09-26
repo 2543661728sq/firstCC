@@ -75,6 +75,9 @@ window.addEventListener('load', () => {
   const heroVideo = document.querySelector('.hero-video-bg');
   if (heroVideo?.dataset.videoSrc) {
     const startVideo = () => {
+      const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      if (isMobile || connection?.saveData || /2g/.test(connection?.effectiveType || '')) return;
       const source = document.createElement('source');
       source.src = heroVideo.dataset.videoSrc;
       source.type = 'video/mp4';
@@ -85,6 +88,28 @@ window.addEventListener('load', () => {
     if ('requestIdleCallback' in window) requestIdleCallback(startVideo, { timeout: 1800 });
     else window.setTimeout(startVideo, 700);
   }
+});
+
+// Load video bytes only when a video is close to the viewport. Posters remain
+// visible immediately, which keeps mobile and slow-network visits responsive.
+const lazyVideoObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const video = entry.target;
+    if (!video.dataset.videoSrc || video.dataset.videoLoaded) {
+      observer.unobserve(video);
+      return;
+    }
+    video.dataset.videoLoaded = 'true';
+    video.src = video.dataset.videoSrc;
+    video.load();
+    if (video.autoplay || video.classList.contains('card-video')) video.play().catch(() => {});
+    observer.unobserve(video);
+  });
+}) : null;
+
+document.querySelectorAll('video[data-video-src]:not(.hero-video-bg)').forEach(video => {
+  if (lazyVideoObserver) lazyVideoObserver.observe(video);
 });
 
 const nav = document.getElementById('nav');
