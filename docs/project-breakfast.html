@@ -40,7 +40,7 @@
     .breakfast-image.dark img { background: #1b1716; }
     .breakfast-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 1.5rem); align-items: start; }
     .breakfast-duo figure { margin: 0; }
-    .breakfast-duo img { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; background: #1b1716; border-radius: 8px; }
+    .breakfast-duo img { width: 100%; height: auto; aspect-ratio: 1400 / 3023; object-fit: contain; background: #1b1716; border-radius: 8px; }
     .breakfast-duo figcaption, .breakfast-gallery figcaption { margin-top: .7rem; color: var(--breakfast-muted); font-size: .88rem; line-height: 1.65; }
     .breakfast-duo figure:nth-child(2) { margin-top: clamp(2rem, 8vw, 6rem); }
     .breakfast-gallery { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1rem, 2.4vw, 1.5rem); align-items: stretch; }
@@ -50,7 +50,9 @@
     .breakfast-gallery .breakfast-detail-stack img { height: auto; }
     .breakfast-form-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: clamp(1rem, 2.4vw, 1.5rem); align-items: start; }
     .breakfast-form-grid .image-stage { margin: 0; }
-    .breakfast-form-grid figure:nth-child(2) img { height: auto; min-height: 0; object-fit: contain; }
+    .breakfast-form-grid img { width: 100%; height: auto; min-height: 0; object-fit: contain; }
+    .breakfast-form-grid figure:first-child img { aspect-ratio: 1600 / 893; }
+    .breakfast-form-grid figure:nth-child(2) img { aspect-ratio: 1400 / 781; }
     .breakfast-footer-note { padding: 4rem 1.25rem 5rem; text-align: center; color: var(--breakfast-muted); }
     .breakfast-footer-note strong { display: block; margin-bottom: .65rem; color: var(--breakfast-ink); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.25; }
     @media (max-width: 760px) {
@@ -136,8 +138,8 @@
       <div class="case-wrap">
         <div class="section-head"><p class="section-label">Interaction System</p><div><h2>把系统拆成三种状态：选择、进行中、保温。</h2><p class="lead">不同页面不是孤立的视觉稿，而是对应用户在晨间流程中的三个关键判断：我想做什么、现在进行到哪一步、接下来如何取用或调整。</p></div></div>
         <div class="breakfast-duo">
-          <figure><img src="images/case-breakfast/custom-brewing.webp" alt="晨序自定义制作界面，支持咖啡浓度、温度与奶泡比例调节" loading="lazy" decoding="async" width="1400" height="3023"><figcaption><strong>选择 / Custom Brewing</strong><br>保留必要的参数控制，同时用预设和个人偏好降低操作门槛。</figcaption></figure>
-          <figure><img src="images/case-breakfast/task-progress.webp" alt="晨序同步制作中界面，显示研磨、萃取、预热与保温状态" loading="lazy" decoding="async" width="1400" height="3023"><figcaption><strong>进行中 / Synchronized Progress</strong><br>把等待变成可理解的进度，并让咖啡与早餐准备同步发生。</figcaption></figure>
+          <figure><img src="images/case-breakfast/custom-brewing.webp" alt="晨序自定义制作界面，支持咖啡浓度、温度与奶泡比例调节" loading="lazy" decoding="async"><figcaption><strong>选择 / Custom Brewing</strong><br>保留必要的参数控制，同时用预设和个人偏好降低操作门槛。</figcaption></figure>
+          <figure><img src="images/case-breakfast/task-progress.webp" alt="晨序同步制作中界面，显示研磨、萃取、预热与保温状态" loading="lazy" decoding="async"><figcaption><strong>进行中 / Synchronized Progress</strong><br>把等待变成可理解的进度，并让咖啡与早餐准备同步发生。</figcaption></figure>
         </div>
       </div>
     </section>
@@ -163,7 +165,7 @@
     </section>
 
     <section class="case-section breakfast-section alt">
-      <div class="case-wrap"><div class="section-head"><p class="section-label">Form Development</p><div><h2>从草图、正视图到细节，工作站被设计成一件可长期使用的家具型设备。</h2><p class="lead">最后回到产品本体：草图探索比例与模块关系，正视图确认工作区，细节图说明操作、清洁和收纳如何落地。</p></div></div><div class="breakfast-form-grid"><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/concept-sketch.webp" alt="晨序智能咖啡与轻早餐工作站手绘方案草图" loading="lazy" decoding="async" width="1600" height="893"></figure><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/front-view.webp" alt="晨序智能咖啡与轻早餐工作站正视图" loading="lazy" decoding="async" width="1400" height="1045"></figure></div></div>
+      <div class="case-wrap"><div class="section-head"><p class="section-label">Form Development</p><div><h2>从草图、正视图到细节，工作站被设计成一件可长期使用的家具型设备。</h2><p class="lead">最后回到产品本体：草图探索比例与模块关系，正视图确认工作区，细节图说明操作、清洁和收纳如何落地。</p></div></div><div class="breakfast-form-grid"><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/concept-sketch.webp" alt="晨序智能咖啡与轻早餐工作站手绘方案草图" loading="lazy" decoding="async"></figure><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/front-view.webp" alt="晨序智能咖啡与轻早餐工作站正视图" loading="lazy" decoding="async"></figure></div></div>
     </section>
   </main>
 
