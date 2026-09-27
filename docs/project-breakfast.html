@@ -25,14 +25,21 @@
     .case-theme-breakfast .case-logo, .case-theme-breakfast .case-back { color: var(--breakfast-ink); }
     .breakfast-hero { background: linear-gradient(135deg, #f8f6f2 0%, #f0e3dc 56%, #e7ede5 100%); }
     .breakfast-hero .case-hero-inner { align-items: center; }
+    .breakfast-hero .case-hero-inner { grid-template-columns: minmax(0, .95fr) minmax(150px, .35fr) minmax(240px, 300px); gap: clamp(1.5rem, 3.5vw, 3.5rem); }
     .breakfast-hero .case-kicker, .breakfast-section .section-label { color: #9b5d47; }
     .breakfast-hero .case-title { color: var(--breakfast-ink); letter-spacing: -.025em; }
     .breakfast-hero .case-summary { color: #4b413d; }
+    .breakfast-hero-notes { display: grid; gap: 1.1rem; align-self: end; padding-bottom: .15rem; }
+    .breakfast-hero-notes article { border-top: 1px solid var(--breakfast-line); padding-top: .7rem; }
+    .breakfast-hero-notes strong { display: block; color: var(--breakfast-ink); font-size: .8rem; line-height: 1.4; }
+    .breakfast-hero-notes span { display: block; margin-top: .3rem; color: var(--breakfast-muted); font-size: .82rem; line-height: 1.55; }
+    .case-theme-breakfast .case-section { padding-top: clamp(2rem, 3.4vw, 3.4rem); padding-bottom: clamp(2rem, 3.4vw, 3.4rem); }
+    .case-theme-breakfast .case-hero { padding-top: clamp(5rem, 7vw, 6.5rem); padding-bottom: clamp(2rem, 3.4vw, 3.4rem); }
     .case-theme-breakfast .image-stage,
     .case-theme-breakfast .image-stage.light,
     .case-theme-breakfast .breakfast-image { background: transparent; padding: 0; border-radius: 0; overflow: visible; }
     .case-theme-breakfast .image-stage img { border-radius: 0; }
-    .breakfast-hero-media { width: min(100%, 300px); height: auto; min-height: 0; justify-self: end; aspect-ratio: auto; background: transparent; padding: 0; border-radius: 0; overflow: visible; }
+    .breakfast-hero-media { width: min(100%, 300px); height: auto; min-height: 0; justify-self: start; aspect-ratio: auto; background: transparent; padding: 0; border-radius: 0; overflow: visible; }
     .breakfast-hero-media img { min-height: 0; width: 100%; height: auto; aspect-ratio: 1408 / 3040; object-fit: contain; border-radius: 0; }
     .breakfast-meta { border-color: rgba(155,93,71,.25) !important; background: rgba(255,255,255,.55) !important; }
     .breakfast-section.alt { background: #fff; }
@@ -52,25 +59,35 @@
     .breakfast-gallery > figure:first-child img { max-width: 720px; }
     .breakfast-gallery .breakfast-detail-stack { display: grid; gap: clamp(1.25rem, 3vw, 2rem); }
     .breakfast-gallery .breakfast-detail-stack img { height: auto; }
+    .breakfast-detail-stack figcaption { margin-top: .7rem; color: var(--breakfast-muted); font-size: .84rem; line-height: 1.55; }
     .breakfast-form-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
     .breakfast-form-grid figure { margin: 0; }
     .breakfast-form-grid img { width: 100%; height: auto; min-height: 0; object-fit: contain; }
     .breakfast-form-grid figure:first-child img { max-width: 720px; }
     .breakfast-form-grid figure:nth-child(2) { padding-top: clamp(1rem, 5vw, 4rem); }
     .breakfast-form-grid figure:nth-child(2) img { max-width: 500px; }
-    .breakfast-closing-image { justify-self: center; width: min(100%, 320px); }
+    .breakfast-form-grid figcaption { margin-top: .8rem; color: var(--breakfast-muted); font-size: .88rem; line-height: 1.6; }
+    .breakfast-outcome { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+    .breakfast-outcome .text-stack { max-width: 54ch; }
+    .breakfast-outcome-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); padding-top: .3rem; }
+    .breakfast-outcome-grid article { border-top: 1px solid var(--breakfast-line); padding-top: .9rem; }
+    .breakfast-outcome-grid strong { display: block; color: var(--breakfast-ink); font-size: 1rem; line-height: 1.4; }
+    .breakfast-outcome-grid p { margin-top: .45rem; color: var(--breakfast-muted); font-size: .88rem; line-height: 1.65; }
     .breakfast-footer-note { padding: 4rem 1.25rem 5rem; text-align: center; color: var(--breakfast-muted); }
     .breakfast-footer-note strong { display: block; margin-bottom: .65rem; color: var(--breakfast-ink); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.25; }
     @media (max-width: 760px) {
+      .breakfast-hero .case-hero-inner { grid-template-columns: 1fr; }
       .breakfast-hero-media { width: min(100%, 300px); justify-self: center; }
       .breakfast-hero-media img { height: auto; }
       .breakfast-ui-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
       .breakfast-gallery, .breakfast-form-grid { grid-template-columns: 1fr; }
       .breakfast-gallery .breakfast-detail-stack { grid-template-columns: 1fr 1fr; }
+      .breakfast-outcome { grid-template-columns: 1fr; gap: 1.5rem; }
     }
     @media (max-width: 480px) {
       .breakfast-ui-strip, .breakfast-gallery .breakfast-detail-stack { grid-template-columns: 1fr; }
       .breakfast-ui-strip img { width: min(100%, 240px); }
+      .breakfast-outcome-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -93,6 +110,11 @@
             <span class="breakfast-meta">晨间协同</span>
             <span class="breakfast-meta">状态反馈</span>
           </div>
+        </div>
+        <div class="breakfast-hero-notes" aria-label="项目概览">
+          <article><strong>设计对象</strong><span>家庭晨间生活系统</span></article>
+          <article><strong>核心任务</strong><span>咖啡 · 轻食 · 保温</span></article>
+          <article><strong>项目输出</strong><span>研究 · 交互 · 产品形态</span></article>
         </div>
         <figure class="hero-media breakfast-hero-media">
           <img src="images/case-breakfast/hero-interface.webp" alt="晨序智能咖啡工作站首页交互界面" width="1408" height="3040">
@@ -161,22 +183,26 @@
         <div class="breakfast-gallery">
           <figure><img src="images/case-breakfast/physical-interface.webp" alt="晨序咖啡工作站实体屏幕界面与操作旋钮" loading="lazy" decoding="async" width="1800" height="1120"><figcaption>实体交互界面：把饮品、温度、时间与耗材状态收束到同一块工作台面。</figcaption></figure>
           <div class="breakfast-detail-stack">
-            <figure><img src="images/case-breakfast/detail-01.webp" alt="晨序咖啡工作站结构细节一" loading="lazy" decoding="async" width="1400" height="1045"></figure>
-            <figure><img src="images/case-breakfast/detail-02.webp" alt="晨序咖啡工作站结构细节二" loading="lazy" decoding="async" width="1400" height="1046"></figure>
+            <figure><img src="images/case-breakfast/detail-01.webp" alt="晨序咖啡工作站结构细节一" loading="lazy" decoding="async" width="1400" height="1045"><figcaption>模块化托盘：支持取用、清洁和收纳的连续动作。</figcaption></figure>
+            <figure><img src="images/case-breakfast/detail-02.webp" alt="晨序咖啡工作站结构细节二" loading="lazy" decoding="async" width="1400" height="1046"><figcaption>细节回应：把补水、耗材与维护提示纳入日常流程。</figcaption></figure>
           </div>
         </div>
       </div>
     </section>
 
     <section class="case-section breakfast-warm-band">
-      <div class="case-wrap split reverse">
-        <figure class="image-stage light breakfast-image breakfast-closing-image"><img src="images/case-breakfast/keep-warm.webp" alt="晨序保温状态界面，展示当前温度、保温时间和热源状态" loading="lazy" decoding="async" width="1400" height="3023"></figure>
-        <div class="text-stack"><p class="section-label">Closing State</p><h3>保温不是一个按钮，而是让用户放心离开的最后状态。</h3><p>保温页面将剩余时间、当前温度和热源状态放在同一个视觉层级中，减少用户反复确认的需要，也让“暂时离开”成为系统支持的一种生活节奏。</p><ul class="feature-list"><li>剩余时间与当前温度持续可见</li><li>增加、减少与关闭保温分别对应清晰动作</li><li>让状态反馈成为用户下一步行动的依据</li></ul></div>
+      <div class="case-wrap breakfast-outcome">
+        <div class="text-stack"><p class="section-label">Design Outcome</p><h3>把设备状态变成用户可以继续行动的提示。</h3><p>晨序不只展示一个界面，而是建立从选择、制作到保温的连续反馈，让用户知道现在发生什么，也知道下一步可以做什么。</p></div>
+        <div class="breakfast-outcome-grid" aria-label="设计结果">
+          <article><strong>更少判断</strong><p>预设与个性化选择收束复杂参数。</p></article>
+          <article><strong>更清晰等待</strong><p>进度、时间与温度持续可见。</p></article>
+          <article><strong>更自然协同</strong><p>咖啡、早餐与维护共享同一节奏。</p></article>
+        </div>
       </div>
     </section>
 
     <section class="case-section breakfast-section alt">
-      <div class="case-wrap"><div class="section-head"><p class="section-label">Form Development</p><div><h2>从草图、正视图到细节，工作站被设计成一件可长期使用的家具型设备。</h2><p class="lead">最后回到产品本体：草图探索比例与模块关系，正视图确认工作区，细节图说明操作、清洁和收纳如何落地。</p></div></div><div class="breakfast-form-grid"><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/concept-sketch.webp" alt="晨序智能咖啡与轻早餐工作站手绘方案草图" loading="lazy" decoding="async"></figure><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/front-view.webp" alt="晨序智能咖啡与轻早餐工作站正视图" loading="lazy" decoding="async"></figure></div></div>
+      <div class="case-wrap"><div class="section-head"><p class="section-label">Form Development</p><div><h2>从草图、正视图到细节，工作站被设计成一件可长期使用的家具型设备。</h2><p class="lead">最后回到产品本体：草图探索比例与模块关系，正视图确认工作区，细节图说明操作、清洁和收纳如何落地。</p></div></div><div class="breakfast-form-grid"><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/concept-sketch.webp" alt="晨序智能咖啡与轻早餐工作站手绘方案草图" loading="lazy" decoding="async"><figcaption>草图探索：拆分咖啡、加热与收纳模块，寻找适合台面协同的比例。</figcaption></figure><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/front-view.webp" alt="晨序智能咖啡与轻早餐工作站正视图" loading="lazy" decoding="async"><figcaption>正视确认：让操作面、出液区与早餐托盘形成连续工作区。</figcaption></figure></div></div>
     </section>
   </main>
 
