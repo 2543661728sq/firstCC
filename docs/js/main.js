@@ -58,20 +58,15 @@ const projects = {
 };
 
 // ========== Page Loader ==========
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('loader');
   if (loader) {
-    // Use requestAnimationFrame for smooth animation
-    requestAnimationFrame(() => {
-      loader.classList.add('hidden');
-      // Remove from DOM after animation completes
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 600);
-    });
+    loader.classList.add('hidden');
+    loader.style.display = 'none';
   }
 
-  // Keep the original moving cover without blocking the first paint.
+  // Start the original moving cover as soon as the DOM exists; the video is
+  // intentionally independent from the rest of the page's image loading.
   const heroVideo = document.querySelector('.hero-video-bg');
   if (heroVideo?.dataset.videoSrc) {
     const startVideo = () => {
@@ -85,8 +80,7 @@ window.addEventListener('load', () => {
       heroVideo.load();
       heroVideo.play().catch(() => {});
     };
-    if ('requestIdleCallback' in window) requestIdleCallback(startVideo, { timeout: 1800 });
-    else window.setTimeout(startVideo, 700);
+    startVideo();
   }
 });
 
