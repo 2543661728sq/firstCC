@@ -670,6 +670,14 @@ nav.menu-open .nav-toggle span {
 .project-card-tea .card-category { color: #b8e8c1; }
 .project-card-tea .impact-tag { background: rgba(35, 93, 61, 0.48); border-color: rgba(184, 232, 193, 0.35); }
 
+.project-card-breakfast .card-img { object-position: center; filter: saturate(0.88) contrast(1.04); }
+.project-card-breakfast .card-overlay {
+  background: linear-gradient(to top, rgba(24, 18, 17, 0.9) 0%, rgba(45, 28, 24, 0.38) 46%, rgba(45, 28, 24, 0.02) 78%, transparent 100%);
+  opacity: 0.82;
+}
+.project-card-breakfast .card-category { color: #ffd0b6; }
+.project-card-breakfast .impact-tag { background: rgba(116, 57, 39, 0.52); border-color: rgba(255, 208, 182, 0.38); }
+
 @media (max-width: 640px) {
   .project-card-rebot .card-info { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; max-width: 86%; }
   .project-card-rebot .card-title { font-size: 1.3rem; }

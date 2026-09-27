@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="晨序智能咖啡与轻早餐工作站案例页，展示晨间协同、用户旅程、状态反馈和产品交互系统。">
+  <title>晨序 | 智能咖啡与轻早餐工作站 | 孙琪作品集</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/case-study.css?v=20260927-breakfast">
+  <style>
+    :root {
+      --breakfast-ink: #27201e;
+      --breakfast-muted: #6d625c;
+      --breakfast-peach: #d78362;
+      --breakfast-sage: #839a87;
+      --breakfast-line: rgba(58, 43, 37, 0.14);
+      --breakfast-paper: #f8f6f2;
+    }
+    body.case-theme-breakfast { background: var(--breakfast-paper); color: var(--breakfast-ink); }
+    .case-theme-breakfast .case-nav { background: rgba(248,246,242,.88); border-color: var(--breakfast-line); }
+    .case-theme-breakfast .case-logo, .case-theme-breakfast .case-back { color: var(--breakfast-ink); }
+    .breakfast-hero { background: linear-gradient(135deg, #f8f6f2 0%, #f0e3dc 56%, #e7ede5 100%); }
+    .breakfast-hero .case-hero-inner { align-items: center; }
+    .breakfast-hero .case-kicker, .breakfast-section .section-label { color: #9b5d47; }
+    .breakfast-hero .case-title { color: var(--breakfast-ink); letter-spacing: -.025em; }
+    .breakfast-hero .case-summary { color: #4b413d; }
+    .breakfast-hero-media { width: min(100%, 380px); height: min(72vh, 620px); min-height: 0; justify-self: end; aspect-ratio: auto; background: #1a1514; padding: clamp(.65rem, 1.8vw, 1rem); }
+    .breakfast-hero-media img { min-height: 0; width: 100%; height: 100%; aspect-ratio: 1408 / 3040; object-fit: contain; border-radius: 5px; }
+    .breakfast-meta { border-color: rgba(155,93,71,.25) !important; background: rgba(255,255,255,.55) !important; }
+    .breakfast-section.alt { background: #fff; }
+    .breakfast-band { background: linear-gradient(135deg, rgba(228,237,227,.94), rgba(250,248,244,.96) 64%, #fff); }
+    .breakfast-warm-band { background: linear-gradient(135deg, rgba(245,224,213,.85), rgba(250,248,244,.96) 62%, #fff); }
+    .breakfast-lead { max-width: 68ch; color: #514944; }
+    .breakfast-image img { object-fit: contain; background: #f1eee8; }
+    .breakfast-image.dark { background: #1b1716; }
+    .breakfast-image.dark img { background: #1b1716; }
+    .breakfast-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 1.5rem); align-items: start; }
+    .breakfast-duo figure { margin: 0; }
+    .breakfast-duo img { width: 100%; aspect-ratio: 1400 / 3023; object-fit: contain; background: #1b1716; border-radius: 8px; }
+    .breakfast-duo figcaption, .breakfast-gallery figcaption { margin-top: .7rem; color: var(--breakfast-muted); font-size: .88rem; line-height: 1.65; }
+    .breakfast-duo figure:nth-child(2) { margin-top: clamp(2rem, 8vw, 6rem); }
+    .breakfast-gallery { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1rem, 2.4vw, 1.5rem); align-items: stretch; }
+    .breakfast-gallery figure { margin: 0; }
+    .breakfast-gallery img { width: 100%; height: 100%; object-fit: contain; background: #f1eee8; border-radius: 8px; }
+    .breakfast-gallery .breakfast-detail-stack { display: grid; gap: 1rem; }
+    .breakfast-gallery .breakfast-detail-stack img { height: auto; }
+    .breakfast-form-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: clamp(1rem, 2.4vw, 1.5rem); align-items: start; }
+    .breakfast-form-grid .image-stage { margin: 0; }
+    .breakfast-form-grid figure:nth-child(2) img { height: 100%; min-height: 0; object-fit: contain; }
+    .breakfast-footer-note { padding: 4rem 1.25rem 5rem; text-align: center; color: var(--breakfast-muted); }
+    .breakfast-footer-note strong { display: block; margin-bottom: .65rem; color: var(--breakfast-ink); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.25; }
+    @media (max-width: 760px) {
+      .breakfast-hero-media { width: 100%; height: auto; max-height: none; justify-self: stretch; }
+      .breakfast-hero-media img { height: auto; }
+      .breakfast-duo, .breakfast-gallery, .breakfast-form-grid { grid-template-columns: 1fr; }
+      .breakfast-duo figure:nth-child(2) { margin-top: 0; }
+      .breakfast-gallery .breakfast-detail-stack { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) { .breakfast-gallery .breakfast-detail-stack { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="case-theme-breakfast">
+  <nav class="case-nav">
+    <a href="index.html" class="case-logo">孙琪</a>
+    <a href="index.html#works" class="case-back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> 返回作品集</a>
+  </nav>
+
+  <main>
+    <header class="case-hero breakfast-hero">
+      <div class="case-hero-inner">
+        <div>
+          <p class="case-kicker">智能硬件与交互设计 · 晨间生活系统</p>
+          <h1 class="case-title">晨序</h1>
+          <p class="case-summary">智能咖啡与轻早餐工作站。面向节奏紧张的晨间场景，把咖啡制作、早餐准备、保温和耗材维护组织成一条可理解、可协同的生活流程。</p>
+          <div class="case-meta" aria-label="项目标签">
+            <span class="breakfast-meta">智能硬件</span>
+            <span class="breakfast-meta">交互系统</span>
+            <span class="breakfast-meta">晨间协同</span>
+            <span class="breakfast-meta">状态反馈</span>
+          </div>
+        </div>
+        <figure class="hero-media breakfast-hero-media">
+          <img src="images/case-breakfast/hero-interface.webp" alt="晨序智能咖啡工作站首页交互界面" width="1408" height="3040">
+        </figure>
+      </div>
+    </header>
+
+    <section class="case-section breakfast-section alt">
+      <div class="case-wrap">
+        <div class="overview-grid">
+          <article class="overview-item"><h3>Challenge</h3><p>晨间任务常常同时发生，设备却把选择、等待、取用与清洁割裂在不同操作里。</p></article>
+          <article class="overview-item"><h3>Role</h3><p>完成用户痛点梳理、流程与交互架构、产品界面、工作站形态及细节表达。</p></article>
+          <article class="overview-item"><h3>Decision</h3><p>用“晨间模式”串联咖啡、早餐和保温，把复杂参数收束为清晰的状态与下一步。</p></article>
+          <article class="overview-item"><h3>Value</h3><p>让工作站从单一咖啡设备转变为一个能配合生活节奏的轻早餐系统。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="case-wrap split">
+        <div class="text-stack">
+          <p class="section-label">Design Position</p>
+          <h3>把“做一杯咖啡”，重新理解为一段需要被照顾的晨间流程。</h3>
+          <p class="breakfast-lead">晨序关注的不是增加更多功能，而是减少早晨的判断和等待。系统根据用户习惯提供一键选择，用进度、余温和提醒把设备状态说清楚，再把咖啡制作与早餐准备放进同一个时间节奏里。</p>
+          <ul class="feature-list">
+            <li>以晨间模式整合咖啡、轻食与保温任务</li>
+            <li>将复杂参数隐藏在可理解的偏好和状态之后</li>
+            <li>让设备主动表达进度、异常和维护建议</li>
+          </ul>
+        </div>
+        <figure class="image-stage light breakfast-image">
+          <img src="images/case-breakfast/scene.webp" alt="晨序智能咖啡与轻早餐工作站在厨房台面中的使用场景" loading="lazy" decoding="async" width="1600" height="893">
+        </figure>
+      </div>
+    </section>
+
+    <section class="case-section breakfast-warm-band">
+      <div class="case-wrap">
+        <div class="section-head"><p class="section-label">User Evidence</p><div><h2>问题不在于没有功能，而在于功能没有跟上晨间节奏。</h2><p class="lead">用户痛点从参数复杂、反馈不清晰，延伸到耗材管理、清洁负担和智能联动不稳定。设计机会因此从“加功能”转向“整理关系”。</p></div></div>
+        <figure class="image-stage light breakfast-image"><img src="images/case-breakfast/pain-points.webp" alt="智能咖啡体验中的六类用户痛点与设计回应" loading="lazy" decoding="async" width="1800" height="1005"></figure>
+      </div>
+    </section>
+
+    <section class="case-section breakfast-section alt">
+      <div class="case-wrap">
+        <div class="section-head"><p class="section-label">Morning Journey</p><div><h2>用一条用户旅程，把设备、早餐和人的节奏放在同一张图里。</h2><p class="lead">从唤醒、选择、等待到协同和离开，设计把每一个接触点转化为可被提示、可被理解、可被继续的状态。</p></div></div>
+        <figure class="image-stage light breakfast-image"><img src="images/case-breakfast/journey-map.webp" alt="晨序智能咖啡工作站用户旅程图" loading="lazy" decoding="async" width="1800" height="1005"></figure>
+      </div>
+    </section>
+
+    <section class="case-section breakfast-band">
+      <div class="case-wrap">
+        <div class="section-head"><p class="section-label">Interaction System</p><div><h2>把系统拆成三种状态：选择、进行中、保温。</h2><p class="lead">不同页面不是孤立的视觉稿，而是对应用户在晨间流程中的三个关键判断：我想做什么、现在进行到哪一步、接下来如何取用或调整。</p></div></div>
+        <div class="breakfast-duo">
+          <figure><img src="images/case-breakfast/custom-brewing.webp" alt="晨序自定义制作界面，支持咖啡浓度、温度与奶泡比例调节" loading="lazy" decoding="async" width="1400" height="3023"><figcaption><strong>选择 / Custom Brewing</strong><br>保留必要的参数控制，同时用预设和个人偏好降低操作门槛。</figcaption></figure>
+          <figure><img src="images/case-breakfast/task-progress.webp" alt="晨序同步制作中界面，显示研磨、萃取、预热与保温状态" loading="lazy" decoding="async" width="1400" height="3023"><figcaption><strong>进行中 / Synchronized Progress</strong><br>把等待变成可理解的进度，并让咖啡与早餐准备同步发生。</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <div class="case-wrap">
+        <div class="section-head"><p class="section-label">Product &amp; Interface</p><div><h2>产品形态和界面共用一套温和、清晰的状态语言。</h2><p class="lead">实体工作站负责承载操作与收纳，界面负责解释状态与选择。圆角、柔和材质和橙绿提示色让设备更像晨间环境的一部分。</p></div></div>
+        <div class="breakfast-gallery">
+          <figure><img src="images/case-breakfast/physical-interface.webp" alt="晨序咖啡工作站实体屏幕界面与操作旋钮" loading="lazy" decoding="async" width="1800" height="1120"><figcaption>实体交互界面：把饮品、温度、时间与耗材状态收束到同一块工作台面。</figcaption></figure>
+          <div class="breakfast-detail-stack">
+            <figure><img src="images/case-breakfast/detail-01.webp" alt="晨序咖啡工作站结构细节一" loading="lazy" decoding="async" width="1400" height="1045"></figure>
+            <figure><img src="images/case-breakfast/detail-02.webp" alt="晨序咖啡工作站结构细节二" loading="lazy" decoding="async" width="1400" height="1046"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section breakfast-warm-band">
+      <div class="case-wrap split reverse">
+        <figure class="image-stage light breakfast-image"><img src="images/case-breakfast/keep-warm.webp" alt="晨序保温状态界面，展示当前温度、保温时间和热源状态" loading="lazy" decoding="async" width="1400" height="3023"></figure>
+        <div class="text-stack"><p class="section-label">Closing State</p><h3>保温不是一个按钮，而是让用户放心离开的最后状态。</h3><p>保温页面将剩余时间、当前温度和热源状态放在同一个视觉层级中，减少用户反复确认的需要，也让“暂时离开”成为系统支持的一种生活节奏。</p><ul class="feature-list"><li>剩余时间与当前温度持续可见</li><li>增加、减少与关闭保温分别对应清晰动作</li><li>让状态反馈成为用户下一步行动的依据</li></ul></div>
+      </div>
+    </section>
+
+    <section class="case-section breakfast-section alt">
+      <div class="case-wrap"><div class="section-head"><p class="section-label">Form Development</p><div><h2>从草图、正视图到细节，工作站被设计成一件可长期使用的家具型设备。</h2><p class="lead">最后回到产品本体：草图探索比例与模块关系，正视图确认工作区，细节图说明操作、清洁和收纳如何落地。</p></div></div><div class="breakfast-form-grid"><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/concept-sketch.webp" alt="晨序智能咖啡与轻早餐工作站手绘方案草图" loading="lazy" decoding="async" width="1600" height="893"></figure><figure class="image-stage light breakfast-image"><img src="images/case-breakfast/front-view.webp" alt="晨序智能咖啡与轻早餐工作站正视图" loading="lazy" decoding="async" width="1400" height="1045"></figure></div></div>
+    </section>
+  </main>
+
+  <section class="breakfast-footer-note"><strong>晨序，让一杯咖啡成为一天的第一个秩序。</strong><span>项目输出：用户研究 · 用户旅程 · 交互系统 · 产品形态 · 细节表达</span></section>
+  <footer class="case-footer"><div class="footer-inner"><a href="index.html#works">返回作品列表</a><a href="project-tea.html">下一项：一盏见礼</a></div></footer>
+</body>
+</html>
